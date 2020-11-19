@@ -45,13 +45,13 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="carousel.html">Αρχική Σελίδα <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="carousel.html">Αρχική Σελίδα </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="carousel.html" >Αξιολόγησε γήπεδο</a>
+          <a class="nav-link" href="#" >Αξιολόγησε γήπεδο</a>
         </li>
       </ul>
       <div class="login-container">
@@ -113,6 +113,17 @@
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="container">
       <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option>Ποδόσφαιρο</option>
+          <option>Μπάσκετ</option>
+          <option>Βόλλευ</option>
+          <option>Τένις</option>
+          <option>Beach Volley</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
         <select class="form-control" id="exampleFormControlSelect1">
           <option value="" selected disabled hidden>--- 
@@ -122,17 +133,6 @@
           <option>Πατήσια</option>
           <option>Γαλάτσι</option>
           <option>Παγκράτι</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="" selected disabled hidden>--- Άθλημα ---</option>
-          <option>Ποδόσφαιρο</option>
-          <option>Μπάσκετ</option>
-          <option>Βόλλευ</option>
-          <option>Τένις</option>
-          <option>Beach Volley</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">

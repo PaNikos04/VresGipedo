@@ -212,3 +212,8 @@ footer p {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* for rating's stars*/
+.checked {
+  color: orange;
+}
