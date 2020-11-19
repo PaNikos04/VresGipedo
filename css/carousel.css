@@ -208,5 +208,7 @@ footer p {
 }
 
 .album{
-  background-color: greenyellow;
+  background-image: url(../images/grass.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
