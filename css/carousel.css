@@ -203,6 +203,8 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+  text-align: center;
+  color: white;
 }
 
 .mybackgroundcolor{
