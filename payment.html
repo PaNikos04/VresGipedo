@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Vres Gipedo - Γήπεδα</title>
+    <link rel="icon" href="images/logo1.jpg" type="image/png" sizes="16x16">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.carousel.css" rel="stylesheet">
+<link rel="stylesheet" href="css/fontawesome.all.css">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Vres Gipedo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="carousel.html">Αρχική Σελίδα</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" >Αξιολόγησε γήπεδο</a>
+            </li>
+          </ul>
+          <div class="btn-group">
+            <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class='fas fa-user'></i> Log in
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <form class="px-4 py-3">
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">Username</label>
+                    <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                        Remember me
+                    </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">New around here? Sign up</a>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
+          </div>
+          
+        </div>
+      </nav>
+    </header>
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Πληρωμή</h1>
+    </div>
+  </section>
+  
+
+  <div class="page-content page-container" id="page-content">
+    <div class="col-lg-8 mx-auto text-center">
+      <h1 class="display-4">Στοιχεία Κράτησης</h1>
+        <div class="row container d-flex justify-content-center">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample">
+                          <div class="form-group row">
+                            <div class="col"> <label>Όνομα</label> <input class="form-control" id="name" placeholder="Αριστοτέλης" readonly> </div>
+                            <div class="col"> <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="Παπαδημητρίου" readonly> </div>
+                          </div>
+                          <div class="form-group"> <label>Email</label> <input class="form-control" id="email" placeholder="papadimitrioy@gmail.com" readonly> </div>  
+                          <div class="form-group"> <label>Γήπεδο</label> <input class="form-control" id="field" placeholder="ΟΑΚΑ" readonly> </div>
+                          <div class="form-group"> <label>Διεύθυνση Γηπέδου</label> <input class="form-control" id="fieldaddress" placeholder="Σπύρου Λούη 28, Μαρούσι" readonly> </div>
+                          <div class="form-group"> <label>Τηλέφωνο Γηπέδου</label> <input class="form-control" id="fieldphone" placeholder="2106117676" readonly> </div>
+                          <div class="form-group row">
+                            <div class="col"> <label>Ημερομηνία</label> <input class="form-control" id="date" placeholder="20/12/2020" readonly> </div>
+                            <div class="col"> <label>Ώρα</label> <input class="form-control" id="hour" placeholder="17:00" readonly> </div>
+                          </div>  
+                          <div class="form-group row">
+                            <div class="col"> <label>Άτομα</label><input class="form-control" id="people" placeholder="10" readonly> </div>
+                            <div class="col"> <label>Κόστος ανά άτομο</label> <input class="form-control" id="personalcost" placeholder="5,00€" readonly> </div>
+                          </div>
+                          <div class="form-group"> <label>Συνολικό Κόστος</label> <input class="form-control" id="totalcost" placeholder="50,00€" readonly> </div>                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  <div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4">Τρόποι Πληρωμής</h1>
+        </div>
+    </div>
+    <div class="row" name="paymentmethod">
+        <div class="col-lg-6 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Πιστωτική Κάρτα</a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i> Paypal </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#cash" class="nav-link "> <i class="fas fa-coins"></i></i> Μετρητά </a> </li>
+                        </ul>
+                    </div> <!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+                        <!-- credit card info-->
+                        <div id="credit-card" class="tab-pane fade show active pt-3">
+                            <form role="form">
+                                <div class="form-group"> <label for="username">
+                                        <h6>Ονοματεπώνυμο Κατόχου Κάρτας</h6>
+                                    </label> <input type="text" name="username" placeholder="Ονοματεπώνυμο Κατόχου Κάρτας" required class="form-control "> </div>
+                                <div class="form-group"> <label for="cardNumber">
+                                        <h6>Αριθμός Κάρτας</h6>
+                                    </label>
+                                    <div class="input-group"> <input type="text" name="cardNumber" placeholder="Αριθμός Κάρτας" class="form-control " required>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group"> <label><span class="hidden-xs">
+                                                    <h6>Ημερομηνία Λήξης</h6>
+                                                </span></label>
+                                            <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                            </label> <input type="text" required class="form-control"> </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 50,00€ </button>
+                            </form>
+                        </div>
+                    </div> <!-- End -->
+                    <!-- Paypal info -->
+                    <div id="paypal" class="tab-pane fade pt-3">
+                        <h6 class="pb-2">Διαλέξτε το είδος του λογαριασμού</h6>
+                        <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Εγχώριος </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Διεθνής </label></div>
+                        <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                    </div> <!-- End -->
+                    <!-- bank transfer info -->
+                    <div id="cash" class="tab-pane fade pt-3">
+                        <div class="form-group ">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name="checkbox" value="check" checked> Πληρωμή με Μετρητά στο Γήπεδο
+                            </label>
+                          </div>
+                              </div>
+                        <div class="form-group">
+                            <p> <button type="button" class="btn btn-primary "><i class="fas fa-coins"></i> Πληρωμή 50,00€ </button> </p>
+                        </div>
+                    </div> <!-- End -->
+                    <!-- End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+  <!-- footer -->
+  <footer class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+    <div class="container">
+          <p>&copy; Copyright 2019 by ismgroup18</p>
+    </div>
+  </footer>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
+
+</html>
