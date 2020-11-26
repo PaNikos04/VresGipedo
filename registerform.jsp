@@ -75,7 +75,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
              </div>
              <br>
 			 			<div class="panel-body">
-			    		<form role="form" class="container">
+			    		<form role="form" class="container" action="registerController.jsp" method="POST">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
