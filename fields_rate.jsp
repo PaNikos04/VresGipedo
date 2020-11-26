@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Vres Gipedo - Γήπεδα</title>
+    <title>Vres Gipedo - Γήπεδα για Αξιολόγηση</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
@@ -45,13 +48,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.html">Αρχική Σελίδα</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
+              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" >Αξιολόγησε γήπεδο</a>
+              <a class="nav-link active" href="fields_rate.jsp">Αξιολόγησε γήπεδο</a>
             </li>
           </ul>
           <div class="btn-group">
@@ -79,11 +79,11 @@
                 <button type="submit" class="btn btn-primary">Είσοδος</button>
                 </form>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="registerform.html">Νέος εδώ; Κάνε εγγραφή!</a>
+                <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
             </div>
           </div>
           <div class="btn-group">
-            <a href="registerform.html" class="btn btn-dark">
+            <a href="registerform.jsp" class="btn btn-dark">
             <i class="fas fa-book"></i> Εγγραφή
             </a>
           </div>
@@ -112,7 +112,7 @@
               <p></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
@@ -132,7 +132,7 @@
               <p class="card-text">Δημοτικό Γήπεδο Αμαρουσίου <br>Αγίου Δημητρίου 34, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106174676</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 6€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
@@ -152,7 +152,7 @@
               <p class="card-text">1ο Αμαρουσίου <br>Φωκαίας 23, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106177432</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
@@ -173,7 +173,7 @@
               <p class="card-text">Football Arena <br>Εθνικής Αντισάεως 56, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106157497</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
@@ -193,7 +193,7 @@
               <p class="card-text">Da Luz <br>Πειραιώς 167, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106179883</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->

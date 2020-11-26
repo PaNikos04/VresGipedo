@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,13 +48,13 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="mainpage.html">Αρχική Σελίδα </a>
+          <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
         </li>
       </ul>
       <div class="btn-group">
@@ -79,11 +82,11 @@
             <button type="submit" class="btn btn-primary">Είσοδος</button>
             </form>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="registerform.html">Νέος εδώ; Κάνε εγγραφή!</a>
+            <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
         </div>
       </div>
       <div class="btn-group">
-        <a href="registerform.html" class="btn btn-dark">
+        <a href="registerform.jsp" class="btn btn-dark">
           <i class="fas fa-book"></i> Εγγραφή
         </a>
       </div>
@@ -145,7 +148,44 @@
 <!-- Modal -->
 <div class="modal" id="myModal" >
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="fields.jsp" method="post">
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option>Ποδόσφαιρο</option>
+          <option>Μπάσκετ</option>
+          <option>Βόλλευ</option>
+          <option>Τένις</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option value="" selected disabled hidden>--- 
+            Περιοχή ---</option>
+          <option>Χαλάνδρι</option>
+          <option>Κυψέλη</option>
+          <option>Πατήσια</option>
+          <option>Γαλάτσι</option>
+          <option>Μαρούσι</option>
+        </select>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal" id="myModal2" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="fields_rate.jsp" method="post">
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>

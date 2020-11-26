@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,10 +53,10 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="mainpage.html">Αρχική Σελίδα</a>
+                <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" >Εγγραφή Χρήστη</a>
+                <a class="nav-link" href="registerform.jsp" >Εγγραφή Χρήστη</a>
               </li>
             </ul>
             
@@ -72,7 +75,7 @@
              </div>
              <br>
 			 			<div class="panel-body">
-			    		<form role="form">
+			    		<form role="form" class="container">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
@@ -96,11 +99,19 @@
 			    						<input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Τηλέφωνο" maxlength="10" required>
 			    					</div>
 			    				</div>
-			    			</div>
-
+                </div>
+                <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Username" required>
-			    			</div>
+			    				<input type="username" name="username" id="username" class="form-control input-sm" placeholder="Username" required>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+			    			<div class="form-group">
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
+                </div>
+              </div>
+            </div>
 
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">

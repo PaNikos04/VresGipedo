@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -100,7 +103,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.html">Αρχική Σελίδα</a>
+              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
               <a class="nav-link">Βρες το γήπεδο σου</a>
@@ -115,7 +118,7 @@
             </button>
           </div>
           <div class="btn-group">
-            <a href="mainpage.html" class="btn btn-dark">
+            <a href="mainpage.jsp" class="btn btn-dark">
               <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
             </a>
           </div>

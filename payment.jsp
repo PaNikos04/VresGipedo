@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,13 +48,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="carousel.html">Αρχική Σελίδα</a>
+              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" >Αξιολόγησε γήπεδο</a>
             </li>
           </ul>
           <div class="btn-group">
@@ -60,7 +60,7 @@
             </button>    
           </div>
           <div class="btn-group">
-            <a href="mainpage.html" class="btn btn-dark">
+            <a href="mainpage.jsp" class="btn btn-dark">
               <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
             </a>
           </div>
@@ -136,7 +136,7 @@
                     <div class="tab-content">
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
-                            <form role="form">
+                            <form role="form" action="#" method="POST">
                               <div class="form-group"> 
                                 <label for="cardNumber">
                                 <h6>Αριθμός Κάρτας</h6>
@@ -190,7 +190,18 @@
                                             </label> <input type="text" required class="form-control" maxlength="3"> </div>
                                     </div>
                                 </div>
-                                <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                <div class="row">
+                                  <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div> 
+                                      <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div> 
+                                      <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                                    </div>
+                                  </div>
+                                
                             </form>
                         </div>
                     </div> <!-- End -->
