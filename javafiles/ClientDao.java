@@ -15,7 +15,7 @@ public class ClientDao {
         Connection con = null;
         PreparedStatement stmt = null;
         String checkSql = "SELECT * FROM ismgroup18.client WHERE username = ? OR email = ?;";
-        String sql = "INSERT INTO ismgroup18.client (id, name, surname, username, password, email, phone, region) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO ismgroup18.client (idClient, name, surname, username, password, email, phone, region) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         try {
             
             con = db.getConnection();
