@@ -112,6 +112,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
     </div>
 
+    <script>
+      function completePayment() {
+        alert("Payment completed successfully!");
+      }
+    </script>
 
 
   <div class="container py-5">
@@ -136,7 +141,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     <div class="tab-content">
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
-                            <form role="form" action="#" method="POST">
+                            <form role="form" action="mainpage.jsp" method="POST">
                               <div class="form-group"> 
                                 <label for="cardNumber">
                                 <h6>Αριθμός Κάρτας</h6>
@@ -193,7 +198,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                                 <div class="row">
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                      <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                                     </div>
                                   </div>
                                   <div class="col-xs-6 col-sm-6 col-md-6">
@@ -208,12 +213,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     <!-- Paypal info -->
                     
                     <div id="paypal" class="tab-pane fade pt-3">
-                      <form role="form" action="#" method="POST">
+                      <form role="form" action="mainpage.jsp" method="POST">
                       <div class="form-group"> 
                         <label for="username">
                         <h6>Email Κατόχου</h6>
                     </label> 
-                    <input type="email" name="username" placeholder="Email Κατόχου" required class="form-control"> 
+                    <input type="email" name="email" placeholder="Email Κατόχου" class="form-control" required> 
                   </div>
                         <h6 class="pb-2">Διαλέξτε το είδος του λογαριασμού</h6>
                         <div class="form-group "> 
@@ -222,7 +227,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <p> <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                              <p> <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
@@ -235,7 +240,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     </div> <!-- End -->
                     <!-- bank transfer info -->
                     <div id="cash" class="tab-pane fade pt-3">
-                      <form role="form" action="#" method="POST">
+                      <form role="form" action="mainpage.jsp" method="POST">
                         <div class="form-group ">
                           <div class="checkbox">
                             <label>
@@ -246,7 +251,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                              <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
