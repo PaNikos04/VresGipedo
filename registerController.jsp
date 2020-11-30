@@ -16,8 +16,10 @@ String phone = request.getParameter("phone");
 if (password.equals(confirm)) {
     Client client = new Client(name, surname, username, password, email, phone, region);
     out.println(client.getName());
+    out.println(client.getId());
     ClientDao cldao = new ClientDao();
     out.println(cldao.hello());
+    //cldao.register(client);
     //<jsp:forward page="mainpage.jsp"/>
 }
 
