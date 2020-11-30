@@ -64,7 +64,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </nav>
       </header>
 
-      <main role="main"></main>
+      <main role="main">
       
       <div class="container" style="position:absolute; left: 30%; top:150px;">
         <div class="row centered-form">

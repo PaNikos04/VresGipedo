@@ -20,7 +20,17 @@ if (password.equals(confirm)) {
     ClientDao cldao = new ClientDao();
     out.println(cldao.hello());
     cldao.register(client);
-    //<jsp:forward page="mainpage.jsp"/>
+%>
+  <jsp:forward page="mainpage.jsp"/> 
+<%  
+} else {
+%>
+<jsp:forward page="registerform.jsp"/>
+
+<%
 }
 
 %>
+
+
+
