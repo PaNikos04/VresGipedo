@@ -39,6 +39,9 @@
           color: black;
           text-shadow: 2px 2px 4px white;
         }
+        input[type=radio]{
+          visibility: hidden;
+        }
 
       }
       
@@ -86,6 +89,7 @@
           </div>
         </section>
         <div class="album">
+          <br>
           <div class="container">
             <div class="row">
               <div style="background-color: white;">
@@ -93,7 +97,7 @@
                   <div class="full">
                     <br>
                     <img src="images/football_5x5.jpg" alt="football_5x5">
-                    <p>ΟΑΚΑ</p>
+                    <h3>OAKA</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Σπύρου Λούη 28, Μαρούσι</p>
                     <p><i class="fas fa-phone fa-flip-horizontal"></i> 2106117676</p>
                     <p> <i class="fas fa-users"></i> Χωρητικότητα: 10</p>
@@ -119,7 +123,7 @@
                             <label for="members">Άτομα: </label>
                           </div>
                         </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div class="col-xs-2 col-sm-2 col-md-2">
                           <div class="form-group">
                             <select class="custom-select" name="members" id="members">
                               <option value="1">1</option>
@@ -159,35 +163,35 @@
                             <table class="btn-group btn-group-toggle" data-toggle="buttons">
                               <tr>
                                 <td><button type="button" class="btn btn-outline-light"><b>15:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour15" name="hour15" ></button>
+                                  <input type="radio" id="hour15" name="hour" value="15"></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light"><b>16:00 &ensp; 5/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour16" name="hour16" ></button>
+                                  <input type="radio" id="hour16" name="hour" value="16"></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light disabled"><b>17:00 &ensp; 10/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour17" name="hour17"></button>
+                                  <input type="radio" id="hour17" name="hour" value="17" disabled></button>
                                 </td>
                               </tr>
                               <tr>
                                 <td><button type="button" class="btn btn-outline-light"><b>18:00 &ensp; 2/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour18" name="hour18"></button>
+                                  <input type="radio" id="hour18" name="hour" value="18"></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light"><b>19:00 &ensp; 1/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour19" name="hour19"></button>
+                                  <input type="radio" id="hour19" name="hour" value="19"></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light"><b>20:00 &ensp; 5/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour20" name="hour20"></button>
+                                  <input type="radio" id="hour20" name="hour" value="20"></button>
                                 </td>
                               </tr>
                               <tr>
                                 <td><button type="button" class="btn btn-outline-light disabled"><b>21:00 &ensp; 10/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour21" name="hour21"></button>
+                                  <input type="radio" id="hour21" name="hour" value="21" disabled></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light"><b>22:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour22" name="hour22"></button>
+                                  <input type="radio" id="hour22" name="hour" value="22"></button>
                                 </td>
                                 <td><button type="button" class="btn btn-outline-light"><b>23:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour23" name="hour23"></button>
+                                  <input type="radio" id="hour23" name="hour" value="23"></button>
                                 </td>
                               </tr>
                             </table>
