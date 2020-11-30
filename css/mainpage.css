@@ -179,8 +179,8 @@ body {
 }
 @media (min-width: 768px) {
   .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -211,6 +211,8 @@ footer p {
   background-image: url(../images/grass.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 10%;
 }
 
 /* for rating's stars*/
