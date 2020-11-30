@@ -208,6 +208,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     <!-- Paypal info -->
                     
                     <div id="paypal" class="tab-pane fade pt-3">
+                      <form role="form" action="#" method="POST">
                       <div class="form-group"> 
                         <label for="username">
                         <h6>Email Κατόχου</h6>
@@ -215,21 +216,46 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     <input type="email" name="username" placeholder="Email Κατόχου" required class="form-control"> 
                   </div>
                         <h6 class="pb-2">Διαλέξτε το είδος του λογαριασμού</h6>
-                        <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Εγχώριος </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Διεθνής </label></div>
-                        <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                        <div class="form-group "> 
+                          <label class="radio-inline"> <input type="radio" name="optradio" checked> Εγχώριος </label> 
+                          <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Διεθνής </label></div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div> 
+                              <p> <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div> 
+                              <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                     </div> <!-- End -->
                     <!-- bank transfer info -->
                     <div id="cash" class="tab-pane fade pt-3">
+                      <form role="form" action="#" method="POST">
                         <div class="form-group ">
                           <div class="checkbox">
                             <label>
                               <input type="checkbox" name="checkbox" value="check" checked> Πληρωμή με Μετρητά στο Γήπεδο
                             </label>
                           </div>
-                              </div>
-                        <div class="form-group">
-                            <p> <button type="button" class="btn btn-primary "><i class="fas fa-coins"></i> Πληρωμή 70,00€ </button> </p>
                         </div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div> 
+                              <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div> 
+                              <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                     </div> <!-- End -->
                     <!-- End -->
                 </div>
