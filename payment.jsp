@@ -267,7 +267,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             </div>
         </div>
     </div>
-
+    </div>
+  </div>
 
     <!-- FOOTER -->
   <!-- footer -->
