@@ -112,7 +112,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <p></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                  <a href="reserve.jsp" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
                 </div>
                 <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
