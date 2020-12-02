@@ -211,7 +211,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   </div>
 </main>
 
-<footer class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+<footer class="navbar-inverse navbar-expand-md navbar-dark bg-dark">
   <div class="container">
         <p>&copy; Copyright 2020 by ismgroup18</p>
   </div>

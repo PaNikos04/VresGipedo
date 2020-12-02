@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Vres Gipedo - Φόρμα Εγγραφής</title>
+    <title>Vres Gipedo - Κράτηση</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 
@@ -147,7 +147,7 @@
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4">
                           <div class="form-group">
-                            <input type="date" id="date" name="date" value="2020-11-30" min="2020-11-30" max="2020-12-30">
+                            <input type="date" id="date" name="date" value="2020-12-02" min="2020-12-02" max="2021-01-02">
                           </div>
                         </div>
                       </div>
@@ -289,9 +289,9 @@
 
 
       <!-- footer -->
-  <footer class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+  <footer class="navbar-inverse navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-          <p>&copy; Copyright 2020 by ismgroup18</p>
+      <p>&copy; Copyright 2020 by ismgroup18</p>
     </div>
   </footer>
 </main>
