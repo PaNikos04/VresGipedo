@@ -214,6 +214,14 @@ footer p {
   padding-bottom: 10%;
 }
 
+.basketball_bg {
+  background-image: url(../images/bg_basketball_court.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 10%;
+}
+
 /* for rating's stars*/
 .checked {
   color: orange;

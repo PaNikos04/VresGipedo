@@ -19,19 +19,24 @@ try{
     ClientDao cldao = new ClientDao();
     Client client = cldao.authenticate(username, password);
 
-
-    session.setAttribute("cldao",client);
-    if (client.equals(null)){
-        throw new Exception("e");
-    } else{
-
         session.setAttribute("clientObj2020",client);
-
+        /*
+        if (status.equals("fields.jsp") || status.equals("fields_rate.jsp")) {
+            int id = (Integer)request.getAttribute("sport");
+            String region = (String)request.getAttribute("region");
+            out.println(id);
+            out.println(region);
+        } 
+        */
 %>
+<%--
+        <jsp:forward page="<%=status%>">
+        <jsp:param name="sport" value="<%=id%>" ></jsp:param>
+        <jsp:param name="region" value="<%=region%>" ></jsp:param>
+        </jsp:forward>
+    --%>
         <jsp:forward page="<%=status%>"/>
-<%
-    }
-    
+<%  
     }catch(Exception e){
 
         request.setAttribute("message", "Wrong username or password");

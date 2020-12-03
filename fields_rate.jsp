@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;
 charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javafiles.*, java.util.List"%>
 
 <!doctype html>
 <html lang="en">
@@ -76,7 +77,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="status" value="fields_rate.jsp">Είσοδος</button>
+                <button type="submit" class="btn btn-primary" name="status" value="mainpage.jsp">Είσοδος</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html;
 charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javafiles.*, java.util.List"%>
+
+<%
+  int id = Integer.parseInt(request.getParameter("sport"));
+  String region = request.getParameter("region");
+  Client client = (Client)session.getAttribute("clientObj2020");
+%>
 
 <!doctype html>
 <html lang="en">
@@ -54,19 +61,35 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
             </li>
           </ul>
+
+          <% if(client != null) {
+          %>
+          <div class="btn-group">
+            <button type="button" class="btn btn-dark"  >
+            <i class='fas fa-user'></i> <%=client.getUsername()%>
+            </button>    
+          </div>
+          <div class="btn-group">
+            <a href="logout.jsp" class="btn btn-dark">
+              <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+            </a>
+          </div>
+          <% } else {
+            %>
+
           <div class="btn-group">
             <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class='fas fa-user'></i> Είσοδος
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <form class="px-4 py-3">
+                <form class="px-4 py-3" action="loginController.jsp" method="POST">
                 <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Username</label>
-                    <input type="text" name="username" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleDropdownFormPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <div class="form-check">
@@ -76,7 +99,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="status" value="fields.jsp">Είσοδος</button>
+                <button type="submit" class="btn btn-primary" name="status" value="mainpage.jsp">Είσοδος</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
@@ -87,6 +110,9 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             <i class="fas fa-book"></i> Εγγραφή
             </a>
           </div>
+          <%
+            }
+          %>
           
         </div>
       </nav>
@@ -100,7 +126,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
   </section>
 
-  <div class="album py-5 ">
+  <div class="basketball_bg py-5 ">
     <div class="container">
 
       <div class="row">
