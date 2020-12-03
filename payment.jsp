@@ -269,7 +269,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
     </div>
   </div>
-
+</main>
     <!-- FOOTER -->
   <!-- footer -->
   <footer class="navbar-inverse navbar-expand-md navbar-dark  bg-dark">
@@ -277,8 +277,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <p>&copy; Copyright 2020 by ismgroup18</p>
     </div>
   </footer>
-</main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
-
+  </body>
 </html>

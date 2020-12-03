@@ -62,11 +62,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Username</label>
-                    <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
+                    <input type="text" name="username" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleDropdownFormPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <div class="form-check">
@@ -76,7 +76,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                     </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Είσοδος</button>
+                <button type="submit" class="btn btn-primary" name="status" value="fields.jsp">Είσοδος</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
@@ -216,6 +216,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <p>&copy; Copyright 2020 by ismgroup18</p>
   </div>
 </footer>
+</body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
-      </html>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>  
+    </body>
+    </html>

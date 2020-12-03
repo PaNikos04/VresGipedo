@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html;
 charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javafiles.*, java.util.List"%>
+
+<%
+  Client client = (Client)session.getAttribute("clientObj2020");
+%>
 
 <!doctype html>
 <html lang="en">
@@ -57,19 +62,35 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
         </li>
       </ul>
+  
+<% if(client != null) {
+%>
+      <div class="btn-group">
+        <button type="button" class="btn btn-dark"  >
+        <i class='fas fa-user'></i> <%=client.getUsername()%>
+        </button>    
+      </div>
+      <div class="btn-group">
+        <a href="logout.jsp" class="btn btn-dark">
+          <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+        </a>
+      </div>
+<% } else {
+  %>
+
       <div class="btn-group">
         <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class='fas fa-user'></i> Είσοδος
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-            <form class="px-4 py-3">
+            <form class="px-4 py-3" action="loginController.jsp" method="POST">
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
+                <input type="text" name="username" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
             </div>
             <div class="form-group">
                 <div class="form-check">
@@ -79,7 +100,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Είσοδος</button>
+            <button type="submit" class="btn btn-primary" name="status" value="mainpage.jsp" >Είσοδος</button>
             </form>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
@@ -90,7 +111,9 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <i class="fas fa-book"></i> Εγγραφή
         </a>
       </div>
-      </div>
+<%}
+%>
+    </div>
       
     </div>
   </nav>
@@ -272,7 +295,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 
   
 
-
+</main>
   <!-- FOOTER -->
   <!-- footer -->
   <footer class="navbar-inverse navbar-expand-md navbar-dark bg-dark">
@@ -280,8 +303,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <p>&copy; Copyright 2020 by ismgroup18</p>
     </div>
   </footer>
-</main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
-
+    </body>
 </html>
