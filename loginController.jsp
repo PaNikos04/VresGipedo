@@ -41,7 +41,7 @@ try{
 
         request.setAttribute("message", "Wrong username or password");
 %>
-        <jsp:forward page="mainpage.jsp"/>  
+        <jsp:forward page="failed_con.jsp"/>  
 <%
     }
 %>

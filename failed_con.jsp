@@ -2,9 +2,6 @@
 charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page errorPage="error_ex2_8180093.jsp"%>
 
-<%
-session.invalidate();
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +13,7 @@ session.invalidate();
     <meta name="generator" content="Jekyll v4.1.1">
     <!-- automatically will redirect to index_ex1_b_8XXXXXX.jsp after 2 seconds -->
 	<meta http-equiv="refresh" content="3;url=<%=request.getContextPath() %>/mainpage.jsp" />
+    <title>Vres Gipedo - Αποσύνδεση</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 
@@ -43,18 +41,17 @@ session.invalidate();
     </style>
     <!-- Custom styles for this template -->
     <link href="css/mainpage.css" rel="stylesheet">
-	<title>Sign out</title>
 
 	</head>
 	<body>	
 
 		<div class="container" role="main">
 
-      <div class="alert alert-success text-center" role="alert">Επιτυχής Αποσύνδεση</div>		
+      <div class="alert alert-danger text-center" role="alert">Wrong username or password</div>	
       <!-- FIX GIF IN CENTER -->
-      <div class="container">
-        <img src="images/loading-img.gif" alt="loading-gif">
-      </div>
+      <div class="container" style="padding-left:40%; padding-right:30%">
+        <img src="images/failure.gif" alt="loading-gif">
+      </div>	
 		</div>
 		<!-- /container -->
 
