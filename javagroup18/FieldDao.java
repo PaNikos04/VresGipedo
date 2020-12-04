@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FieldDao {
-
+	//Telika isws einai lathos o pinakas Category
     public List<Field> getFields(int idCategory) throws Exception {
 
         List<Field> fields = new ArrayList<Field>();
@@ -13,7 +13,7 @@ public class FieldDao {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-        String sqlQuery = "SELECT * FROM ismgroup18.field; WHERE idCategory = ?";
+        String sqlQuery = "SELECT * FROM ismgroup18.field WHERE idCategory = ?;";
         try {
 			con = db.getConnection();
 			stmt = con.prepareStatement(sqlQuery);
@@ -74,7 +74,7 @@ public class FieldDao {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sqlQuery = "SELECT ROUND(AVG(stars)) AS stars FROM ismgroup18.category WHERE idField= ?;";
+		String sqlQuery = "SELECT ROUND(AVG(stars)) AS stars FROM ismgroup18.rating WHERE id__Field= ?;";
 		try {
 			con = db.getConnection();
 			stmt = con.prepareStatement(sqlQuery);
