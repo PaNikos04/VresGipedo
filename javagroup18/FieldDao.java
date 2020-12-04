@@ -53,7 +53,7 @@ public class FieldDao {
 			if(!rs.next()) {
 				return -1;
             }
-            capacity = rs.getInt(capacity);
+            capacity = rs.getInt("capacity");
 			rs.close();
 			stmt.close();
 			return capacity;
@@ -66,6 +66,37 @@ public class FieldDao {
 				
 			}
 		}
-    }
+	}
+	
+	public int getFieldRating(int idField) throws Exception {
+		int rating = 0;
+		DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String sqlQuery = "SELECT ROUND(AVG(stars)) AS stars FROM ismgroup18.category WHERE idField= ?;";
+		try {
+			con = db.getConnection();
+			stmt = con.prepareStatement(sqlQuery);
+			stmt.setInt(1, idField);
+			rs = stmt.executeQuery();
+
+			if(!rs.next()) {
+				return -1;
+            }
+            rating = rs.getInt("stars");
+			rs.close();
+			stmt.close();
+			return rating;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				db.close();
+			} catch (Exception e) {
+				
+			}
+		}
+	}
 
 }
