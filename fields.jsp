@@ -3,8 +3,13 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javafiles.*, java.util.List"%>
 
 <%
-  int id = Integer.parseInt(request.getParameter("sport"));
+  String s = request.getParameter("sport");
   String region = request.getParameter("region");
+  if(s == null || region == null){
+    response.sendRedirect("mainpage.jsp");
+    return;
+}
+  int sport = Integer.parseInt(s);
   Client client = (Client)session.getAttribute("clientObj2020");
 %>
 
@@ -75,6 +80,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             </a>
           </div>
           <% } else {
+                  session.setAttribute("sport",sport);
+                  session.setAttribute("region",region);
             %>
 
           <div class="btn-group">
@@ -93,13 +100,13 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 </div>
                 <div class="form-group">
                     <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
                     <label class="form-check-label" for="dropdownCheck">
                         Remember me
                     </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="status" value="mainpage.jsp">Είσοδος</button>
+                <button type="submit" class="btn btn-primary" name="status" value="fields.jsp">Είσοδος</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
@@ -126,7 +133,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
   </section>
 
-  <div class="basketball_bg py-5 ">
+  <div class="bg_football">
     <div class="container">
 
       <div class="row">

@@ -19,22 +19,20 @@ try{
     ClientDao cldao = new ClientDao();
     Client client = cldao.authenticate(username, password);
 
-        session.setAttribute("clientObj2020",client);
-        /*
+        session.setAttribute("clientObj2020",client); 
         if (status.equals("fields.jsp") || status.equals("fields_rate.jsp")) {
-            int id = (Integer)request.getAttribute("sport");
-            String region = (String)request.getAttribute("region");
-            out.println(id);
-            out.println(region);
-        } 
-        */
+            int sport = (Integer) session.getAttribute("sport");
+            String region = (String) session.getAttribute("region");
 %>
-<%--
+
         <jsp:forward page="<%=status%>">
-        <jsp:param name="sport" value="<%=id%>" ></jsp:param>
+        <jsp:param name="sport" value="<%=sport%>" ></jsp:param>
         <jsp:param name="region" value="<%=region%>" ></jsp:param>
         </jsp:forward>
-    --%>
+<%
+        }
+%>
+
         <jsp:forward page="<%=status%>"/>
 <%  
     }catch(Exception e){

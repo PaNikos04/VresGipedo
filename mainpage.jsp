@@ -111,7 +111,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <i class="fas fa-book"></i> Εγγραφή
         </a>
       </div>
-<%}
+<%
+      }
 %>
     </div>
       
@@ -171,7 +172,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- Modal -->
 <div class="modal" id="myModal" >
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="modal-content animate" action="fields.jsp" method="post">
+  <form class="modal-content animate" action="fields.jsp" method="GET">
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
@@ -207,28 +208,27 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- Modal2 -->
 <div class="modal" id="myModal2" >
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="modal-content animate" action="fields_rate.jsp" method="post">
+  <form class="modal-content animate" action="fields_rate.jsp" method="GET">
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
-        <select class="form-control" id="exampleFormControlSelect1" name="sport">
+        <select class="form-control" id="sport" name="sport">
           <option value="" selected disabled hidden>--- Άθλημα ---</option>
-          <option>Ποδόσφαιρο</option>
-          <option>Μπάσκετ</option>
-          <option>Βόλλευ</option>
-          <option>Τένις</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="" selected disabled hidden>--- 
-            Περιοχή ---</option>
-          <option>Χαλάνδρι</option>
-          <option>Κυψέλη</option>
-          <option>Πατήσια</option>
-          <option>Γαλάτσι</option>
-          <option>Μαρούσι</option>
+        <select class="form-control" id="sport" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="chalandri">Χαλάνδρι</option>
+          <option value="kipseli">Κυψέλη</option>
+          <option value="patisia">Πατήσια</option>
+          <option value="galatsi">Γαλάτσι</option>
+          <option value="marousi">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">
