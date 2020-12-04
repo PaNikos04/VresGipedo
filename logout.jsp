@@ -52,9 +52,7 @@ session.invalidate();
 
       <div class="alert alert-success text-center" role="alert">Επιτυχής Αποσύνδεση</div>		
       <!-- FIX GIF IN CENTER -->
-      <div class="container">
-        <img src="images/loading-img.gif" alt="loading-gif">
-      </div>
+        <img class="preloader" src="images/loading-img.gif" alt="loading-gif">
 		</div>
 		<!-- /container -->
 
