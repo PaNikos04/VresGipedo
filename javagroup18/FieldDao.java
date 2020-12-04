@@ -22,6 +22,7 @@ public class FieldDao {
 			stmt.setInt(1, idCategory);
             rs = stmt.executeQuery();
             while(rs.next()) {
+				//EDW EXOUME PROVLIMA... 
                 fields.add(new Field(rs.getInt("idField"), rs.getString("street"), rs.getString("number"), rs.getString("region"), rs.getString("title"), rs.getDouble("participant_cost"), rs.getString("url_img"), rs.getString("phone"), rs.getInt("idCategory"), rs.getInt("idOwner")));
             }
 			rs.close();
