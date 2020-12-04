@@ -135,10 +135,10 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
   </section>
 
-<div class="album py-5 ">
+<div class="bg_football">
   <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col" style="background-color: #e9ecef; padding-bottom: 50px;">
             <h3 style="color: black;">Στοιχεία Γηπέδου:</h3>
             <h5 style="color: black;">ΟΑΚΑ</h5>
             <h5 style="color: black;">Σπύρου Λούη 28, Μαρούσι</h5>
