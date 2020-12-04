@@ -206,16 +206,32 @@ footer p {
   color: white;
 }
 
-.album{
-  background-image: url(../images/grass.jpg);
+.bg_football{
+  background-image: url(../images/bg_football.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 3rem;
   padding-bottom: 10%;
 }
 
-.basketball_bg {
-  background-image: url(../images/bg_basketball_court.jpg);
+.bg_basketball {
+  background-image: url(../images/bg_basketball.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 10%;
+}
+
+.bg_tennis {
+  background-image: url(../images/bg_tennis.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 10%;
+}
+
+.bg_volleyball {
+  background-image: url(../images/bg_volleyball.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 3rem;
