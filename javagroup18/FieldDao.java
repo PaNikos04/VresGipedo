@@ -3,11 +3,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.Field;
-
 public class FieldDao {
 
-    public List<Field> findField(int idCategory) {
+    public List<Field> getFields(int idCategory) throws Exception {
 
         List<Field> fields = new ArrayList<Field>();
 				
@@ -22,7 +20,6 @@ public class FieldDao {
 			stmt.setInt(1, idCategory);
             rs = stmt.executeQuery();
             while(rs.next()) {
-				//EDW EXOUME PROVLIMA... 
                 fields.add(new Field(rs.getInt("idField"), rs.getString("street"), rs.getString("number"), rs.getString("region"), rs.getString("title"), rs.getDouble("participant_cost"), rs.getString("url_img"), rs.getString("phone"), rs.getInt("idCategory"), rs.getInt("idOwner")));
             }
 			rs.close();
@@ -40,8 +37,8 @@ public class FieldDao {
 
     }
     
-    public int findCapacity(int idCategory){
-        int capacity;
+    public int getCapacity(int idCategory) throws Exception {
+        int capacity = 0;
         DB db = new DB();
 		Connection con = null;
 		PreparedStatement stmt = null;
