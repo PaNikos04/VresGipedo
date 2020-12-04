@@ -9,7 +9,7 @@ public class Client {
     private String phone;
     private String region;
     private int id;
-    private static int count;
+    private static int count = 40;
 
     public Client(String name, String surname, String username, String password, String email, String phone,
             String region) {
