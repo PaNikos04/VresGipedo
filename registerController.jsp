@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javafiles.*, java.util.List"%>
+<%@ page import="javagrou18.*, java.util.List"%>
 
 <%
 //get parameter from request
