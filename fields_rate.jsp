@@ -63,7 +63,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="fields_rate.jsp">Αξιολόγησε γήπεδο</a>
+              <a class="nav-link active" href="#">Αξιολόγησε γήπεδο</a>
             </li>
           </ul>
 
@@ -133,7 +133,20 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
   </section>
 
-  <div class="bg_football">
+<%
+  String background;
+  if (sport == 1) {
+    background = "bg_football";
+  } else if (sport == 2) {
+    background = "bg_basketball";
+  } else if (sport == 3) {
+    background ="bg_volleyball";
+  } else {
+    background = "bg_tennis";
+  }
+%>
+
+  <div class=<%=background %>>
     <div class="container">
 
       <div class="row">

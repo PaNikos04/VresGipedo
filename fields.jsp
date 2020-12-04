@@ -132,8 +132,19 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       <h1>Διάλεξε Γήπεδο</h1>
     </div>
   </section>
-
-  <div class="bg_football">
+<%
+  String background;
+  if (sport == 1) {
+    background = "bg_football";
+  } else if (sport == 2) {
+    background = "bg_basketball";
+  } else if (sport == 3) {
+    background ="bg_volleyball";
+  } else {
+    background = "bg_tennis";
+  }
+%>
+  <div class=<%=background %>>
     <div class="container">
 
       <div class="row">
