@@ -3,14 +3,18 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javagroup18.*, java.util.List"%>
 
 <%
+  request.setCharacterEncoding("UTF-8");
   String s = request.getParameter("sport");
-  String region = request.getParameter("region");
-  if(s == null || region == null){
+  String r= request.getParameter("region");
+  if(s == null || r == null){
     response.sendRedirect("mainpage.jsp");
     return;
 }
   int sport = Integer.parseInt(s);
+  int region = Integer.parseInt(r);
   Client client = (Client)session.getAttribute("clientObj2020");
+  FieldDao fdao = new FieldDao();
+  List<Field> fields = fdao.getFields(sport, region);
 %>
 
 <!doctype html>
@@ -148,108 +152,42 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     <div class="container">
 
       <div class="row">
+        <%
+          for (Field f : fields) {
+        %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="images/football_5x5.jpg" class="d-block w-100" alt="football" width="100" height="200">
+            <img src="<%=f.getUrl()%>" class="d-block w-100" alt="<%=f.getTitle()%>" width="100" height="200">
             <div class="card-body">
-              <p class="card-text">ΟΑΚΑ <br>Σπύρου Λούη 28, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106117676</p>
+              <p class="card-text"><%=f.getTitle()%> <br><%=f.getStreet()%> <%=f.getNumber()%>, <%=fdao.getRegion(f.getIdRegion())%><br><i class="fas fa-phone fa-flip-horizontal"></i> <%=f.getPhone()%></p>
               <p></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="reserve.jsp" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
                 </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
+                <small class="text-muted">Χωρητικότητα: <%=f.getCapacity()%> <i class='fas fa-user-alt'></i><br>Κόστος: <%=f.getCost()%>€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
+                  <%int stars = fdao.getFieldRating(f.getId());
+                    int empty = 5 - stars;
+                    for (int i = 0; i < stars; i++) {
+                  %>
                   <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
+                  <%
+                    }
+                    for (int i = 0; i < empty; i++) {
+                  %>
                   <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span></small>
+                  <%
+                    }
+                  %>
+                  </small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football_7x7.jpg" class="d-block w-100" alt="football" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Δημοτικό Γήπεδο Αμαρουσίου <br>Αγίου Δημητρίου 34, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106174676</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 6€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football1.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">1ο Αμαρουσίου <br>Φωκαίας 23, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106177432</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football2.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Football Arena <br>Εθνικής Αντισάεως 56, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106157497</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football3.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Da Luz <br>Πειραιώς 167, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106179883</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%
+          }
+        %>
       </div>
     </div>
   </div>

@@ -188,11 +188,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
         <select class="form-control" id="exampleFormControlSelect1" name="region">
           <option value="" selected disabled hidden>--- Περιοχή ---</option>
-          <option value="chalandri">Χαλάνδρι</option>
-          <option value="kipseli">Κυψέλη</option>
-          <option value="patisia">Πατήσια</option>
-          <option value="galatsi">Γαλάτσι</option>
-          <option value="marousi">Μαρούσι</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">
@@ -224,11 +224,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
         <select class="form-control" id="sport" name="region">
           <option value="" selected disabled hidden>--- Περιοχή ---</option>
-          <option value="chalandri">Χαλάνδρι</option>
-          <option value="kipseli">Κυψέλη</option>
-          <option value="patisia">Πατήσια</option>
-          <option value="galatsi">Γαλάτσι</option>
-          <option value="marousi">Μαρούσι</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">

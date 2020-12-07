@@ -7,26 +7,28 @@ public class Field {
     private int id;
     private String street;
     private String number;
-    private String region;
     private String title;
+    private int capacity;
     private double cost;
     private String url;
     private String phone;
     private int idCategory;
     private int idOwner;
+    private int idRegion;
 
-    public Field(int id, String street, String number, String region, String title, double cost, String url,
-            String phone, int idCategory, int idOwner) {
+    public Field(int id, String street, String number, String title, int capacity, double cost, String url,
+            String phone, int idCategory, int idOwner, int idRegion) {
         this.id = id;
         this.street = street;
         this.number = number;
-        this.region = region;
         this.title = title;
+        this.capacity = capacity;
         this.cost = cost;
         this.url = url;
         this.phone = phone;
         this.idCategory = idCategory;
         this.idOwner = idOwner;
+        this.idRegion = idRegion;
     }
 
     public int getId() {
@@ -53,20 +55,20 @@ public class Field {
         this.number = number;
     }
 
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public double getCost() {
@@ -109,6 +111,11 @@ public class Field {
         this.idOwner = idOwner;
     }
 
-    
+    public int getIdRegion() {
+        return idRegion;
+    }
 
+    public void setIdRegion(int idRegion) {
+        this.idRegion = idRegion;
+    }
 }
