@@ -67,7 +67,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
             </li>
           </ul>
 
@@ -191,6 +191,42 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       </div>
     </div>
   </div>
+
+<div class="modal" id="myModal" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="fields.jsp" method="GET">
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="sport">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
+        </select>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
 </main>
 
 <footer class="navbar-inverse navbar-expand-md navbar-dark bg-dark">
