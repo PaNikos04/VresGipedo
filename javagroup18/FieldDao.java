@@ -36,6 +36,36 @@ public class FieldDao {
 			}
 		}
 
+	}
+	
+	public Field getField(int id) throws Exception {			
+		DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+        String sqlQuery = "SELECT * FROM ismgroup18.field WHERE idField = ?;";
+        try {
+			con = db.getConnection();
+			stmt = con.prepareStatement(sqlQuery);
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			if (!rs.next()) {
+				return null;
+			}
+			Field field = new Field(rs.getInt("idField"), rs.getString("street"), rs.getString("number"), rs.getString("title"), rs.getInt("capacity"), rs.getDouble("participant_cost"), rs.getString("url_img"), rs.getString("phone"), rs.getInt("idCategory"), rs.getInt("idOwner"), rs.getInt("idRegion"));
+			rs.close();
+            stmt.close();
+            return field;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				db.close();
+			} catch (Exception e) {
+				
+			}
+		}
+
     }
     /* ISWS DEN XREIASTEI
     public int getCapacity(int idCategory) throws Exception {

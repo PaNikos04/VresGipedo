@@ -1,4 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javagroup18.*, java.util.List"%>
+
+<%
+  Client client = (Client)session.getAttribute("clientObj2020");
+  if (client == null) {
+    request.setAttribute("message","Δεν έχετε πρόσβαση σε αυτή τη σελίδα!");
+  %>
+  <jsp:forward page="danger.jsp"/>
+  <%
+  }
+  String field = request.getParameter("field");
+  int id = Integer.parseInt(field);
+  FieldDao fdao = new FieldDao();
+  Field f = fdao.getField(id);
+%>
 
 <!doctype html>
 <html lang="en">
@@ -74,16 +89,16 @@
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
               </li>
             </ul>
-            <div class="btn-group">
-              <button type="button" class="btn btn-dark"  >
-              <i class='fas fa-user'></i> mariosdim
-              </button>    
-            </div>
-            <div class="btn-group">
-              <a href="mainpage.jsp" class="btn btn-dark">
-                <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
-              </a>
-            </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-dark"  >
+                <i class='fas fa-user'></i> <%=client.getUsername()%>
+                </button>    
+              </div>
+              <div class="btn-group">
+                <a href="logout.jsp" class="btn btn-dark">
+                  <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+                </a>
+              </div>
             
           </div>
         </nav>
@@ -101,18 +116,26 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="full">
                     <br>
-                    <img src="images/football_5x5.jpg" alt="football_5x5">
-                    <h3>OAKA</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Σπύρου Λούη 28, Μαρούσι</p>
-                    <p><i class="fas fa-phone fa-flip-horizontal"></i> 2106117676</p>
-                    <p> <i class="fas fa-users"></i> Χωρητικότητα: 10</p>
-                    <p> <i class="fas fa-euro-sign"></i> Κόστος: 7€</p>
+                    <img src="<%=f.getUrl()%>" alt="<%=f.getUrl()%>" width="350" height="200">
+                    <h3><%=f.getTitle()%></h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <%=f.getStreet()%> <%=f.getNumber()%>, <%=fdao.getRegion(f.getIdRegion())%></p>
+                    <p><i class="fas fa-phone fa-flip-horizontal"></i> <%=f.getPhone()%></p>
+                    <p> <i class="fas fa-users"></i> Χωρητικότητα: <%=f.getCapacity()%></p>
+                    <p> <i class="fas fa-euro-sign"></i> Κόστος: <%=f.getCost()%>€ <i class='fas fa-user-alt'></i></p>
                     <p>Bαθμολογία: 
+                      <%int stars = fdao.getFieldRating(f.getId());
+                        int empty = 5 - stars;
+                        for (int i = 0; i < stars; i++) {
+                      %>
                       <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
+                      <%
+                        }
+                        for (int i = 0; i < empty; i++) {
+                      %>
                       <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
+                      <%
+                        }
+                      %>
                     </p>
                     <a href="rating.jsp" class="btn btn-outline-secondary">Αξιολόγησε το γήπεδο</a>
                     <br>
