@@ -1,4 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javagroup18.*, java.util.List"%>
+
+<%
+  Client client = (Client)session.getAttribute("clientObj2020");
+  if (client == null) {
+    request.setAttribute("message","Δεν έχετε πρόσβαση σε αυτή τη σελίδα!");
+  %>
+  <jsp:forward page="danger.jsp"/>
+  <%
+  }
+  String field = request.getParameter("field");
+  int id = Integer.parseInt(field);
+  FieldDao fdao = new FieldDao();
+  Field f = fdao.getField(id);
+%>
 
 <!doctype html>
 <html lang="en">
@@ -74,16 +89,16 @@
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
               </li>
             </ul>
-            <div class="btn-group">
-              <button type="button" class="btn btn-dark"  >
-              <i class='fas fa-user'></i> mariosdim
-              </button>    
-            </div>
-            <div class="btn-group">
-              <a href="mainpage.jsp" class="btn btn-dark">
-                <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
-              </a>
-            </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-dark"  >
+                <i class='fas fa-user'></i> <%=client.getUsername()%>
+                </button>    
+              </div>
+              <div class="btn-group">
+                <a href="logout.jsp" class="btn btn-dark">
+                  <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+                </a>
+              </div>
             
           </div>
         </nav>
@@ -94,25 +109,45 @@
             <h1>Κράτηση</h1>
           </div>
         </section>
-        <div class="bg_football">
+        <%
+          String background;
+          if (f.getIdCategory() == 1) {
+            background = "bg_football";
+          } else if (f.getIdCategory() == 2) {
+            background = "bg_basketball";
+          } else if (f.getIdCategory() == 3) {
+            background ="bg_volleyball";
+          } else {
+            background = "bg_tennis";
+          }
+        %>
+        <div class="<%=background%>">
           <div class="container">
             <div class="row">
               <div style="background-color: #e9ecef;">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="full">
                     <br>
-                    <img src="images/football_5x5.jpg" alt="football_5x5">
-                    <h3>OAKA</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Σπύρου Λούη 28, Μαρούσι</p>
-                    <p><i class="fas fa-phone fa-flip-horizontal"></i> 2106117676</p>
-                    <p> <i class="fas fa-users"></i> Χωρητικότητα: 10</p>
-                    <p> <i class="fas fa-euro-sign"></i> Κόστος: 7€</p>
+                    <img src="<%=f.getUrl()%>" alt="<%=f.getUrl()%>" width="350" height="200">
+                    <h3><%=f.getTitle()%></h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <%=f.getStreet()%> <%=f.getNumber()%>, <%=fdao.getRegion(f.getIdRegion())%></p>
+                    <p><i class="fas fa-phone fa-flip-horizontal"></i> <%=f.getPhone()%></p>
+                    <p> <i class="fas fa-users"></i> Χωρητικότητα: <%=f.getCapacity()%></p>
+                    <p> <i class="fas fa-euro-sign"></i> Κόστος: <%=f.getCost()%>€ <i class='fas fa-user-alt'></i></p>
                     <p>Bαθμολογία: 
+                      <%int stars = fdao.getFieldRating(f.getId());
+                        int empty = 5 - stars;
+                        for (int i = 0; i < stars; i++) {
+                      %>
                       <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
+                      <%
+                        }
+                        for (int i = 0; i < empty; i++) {
+                      %>
                       <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
+                      <%
+                        }
+                      %>
                     </p>
                     <a href="rating.jsp" class="btn btn-outline-secondary">Αξιολόγησε το γήπεδο</a>
                     <br>
@@ -122,7 +157,7 @@
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12">
                   <div style="background-color: #e9ecef; padding-bottom: 50px; padding-top: 50px;">
-                    <form role="form" class="container" action="payment.jsp" method="POST">
+                    <form role="form" class="container" action="#myform" method="POST">
                       <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
                           <div class="form-group">
@@ -131,7 +166,7 @@
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2">
                           <div class="form-group">
-                            <select class="custom-select" name="members" id="members">
+                            <select class="custom-select" name="members" id="members" value="1">
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
@@ -159,51 +194,61 @@
                         </div>
                       </div>
                       <div class="row">
+                        <div class="col-xs-5 offset-xs-3 col-sm-5 offset-sm-3 col-md-5 offset-md-3">
+                          <button type="submit" class="btn btn-dark" style=" color: white; border-color: white; border-width: 2px;">Δες ώρες</button>
+                        </div>
+                        </div>
+                    </form>
+                      <form role="form" id="myform" class="container" action="payment.jsp" method="POST">
+                        <br>
+                      <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
                           <div class="form-group">
-                            <label for="Date"><b>Ώρα: </b></label>
+                            <!--<label for="Date"><b>Ώρα: </b></label>-->
+                            <%
+                            int people = 0;
+                            String m =request.getParameter("members");
+                            String date = (request.getParameter("date"));
+                            if(m != null && date != null){
+                              %><label for="Date"><b>Ώρα: </b></label><%
+                              people = Integer.parseInt(m);
+                              //out.println(people);
+                              //out.println(date);
+                            }
+                            ReserveDao mydao = new ReserveDao();
+                            List<List<String>> avails = mydao.getAvail(f.getId(), date);
+                            %>
                           </div>
                         </div>
                         <div class="col-xs-9 col-sm-9 col-md-9">
                           <div class="form-group">
                             <table class="btn-group btn-group-toggle" data-toggle="buttons">
                               <tr>
-                                <td><button type="button" class="btn btn-outline-dark"><b>15:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour15" name="hour" value="15"></button>
+                                <%
+                                int count = 0;
+                                for(int i=0; i<avails.size(); i++){
+                                  count++;
+                                %>
+                                <td><button type="button" class="btn btn-outline-dark" <%if(Integer.parseInt(avails.get(i).get(1)) + people > f.getCapacity()){%> disabled <% }%>><b><%=avails.get(i).get(0)%> &ensp; <%=avails.get(i).get(1)%>/<%=f.getCapacity()%> </b><i class="fas fa-user"></i>
+                                  <input type="radio" id="hour" name="hour" value="<%=avails.get(i).get(0)%>"></button>
                                 </td>
-                                <td><button type="button" class="btn btn-outline-dark"><b>16:00 &ensp; 5/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour16" name="hour" value="16"></button>
-                                </td>
-                                <td><button type="button" class="btn btn-outline-dark disabled"><b>17:00 &ensp; 10/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour17" name="hour" value="17" disabled></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><button type="button" class="btn btn-outline-dark"><b>18:00 &ensp; 2/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour18" name="hour" value="18"></button>
-                                </td>
-                                <td><button type="button" class="btn btn-outline-dark"><b>19:00 &ensp; 1/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour19" name="hour" value="19"></button>
-                                </td>
-                                <td><button type="button" class="btn btn-outline-dark"><b>20:00 &ensp; 5/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour20" name="hour" value="20"></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><button type="button" class="btn btn-outline-dark disabled"><b>21:00 &ensp; 10/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour21" name="hour" value="21" disabled></button>
-                                </td>
-                                <td><button type="button" class="btn btn-outline-dark"><b>22:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour22" name="hour" value="22"></button>
-                                </td>
-                                <td><button type="button" class="btn btn-outline-dark"><b>23:00 &ensp; 0/10 </b><i class="fas fa-user"></i>
-                                  <input type="radio" id="hour23" name="hour" value="23"></button>
-                                </td>
+                                <%
+                                    if(count % 3 == 0){
+                                 %> 
+                                </tr>
+                                 <tr>
+                                <%     
+                                    }
+
+                                  }
+                                %>
                               </tr>
                             </table>
                           </div>
                         </div>
                       </div>
+                      <%if(m != null && date != null){
+                        %>
                       <div class="row">
                         <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
                           <button type="submit" class="btn btn-success" style=" color: white; border-color: white; border-width: 2px;">Υποβολή</button>
@@ -214,6 +259,9 @@
 
                         </div>
                       </div>
+                     <%
+                      }
+                      %>
                     </form>
                 </div>
               </div>
@@ -224,28 +272,27 @@
         <!-- Modal -->
 <div class="modal" id="myModal" >
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="modal-content animate" action="fields.jsp" method="post">
+  <form class="modal-content animate" action="fields.jsp" method="get">
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="exampleFormControlSelect1" name="sport">
           <option value="" selected disabled hidden>--- Άθλημα ---</option>
-          <option>Ποδόσφαιρο</option>
-          <option>Μπάσκετ</option>
-          <option>Βόλλευ</option>
-          <option>Τένις</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="" selected disabled hidden>--- 
-            Περιοχή ---</option>
-          <option>Χαλάνδρι</option>
-          <option>Κυψέλη</option>
-          <option>Πατήσια</option>
-          <option>Γαλάτσι</option>
-          <option>Μαρούσι</option>
+        <select class="form-control" id="exampleFormControlSelect1" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">

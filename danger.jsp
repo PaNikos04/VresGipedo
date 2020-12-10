@@ -2,7 +2,6 @@
 charset=UTF-8" pageEncoding="UTF-8"%>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -46,12 +45,10 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 	<body>	
 
 		<div class="container" role="main">
-
-      <div class="alert alert-danger text-center" role="alert">Wrong username or password</div>	
-      <!-- FIX GIF IN CENTER -->
-      <div class="container" style="padding-left:40%; padding-right:30%">
-        <img src="images/failure.gif" alt="loading-gif">
-      </div>	
+      <% if(request.getAttribute("message") != null) { %>		
+			<div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+		  <% } %>
+      <!-- FIX GIF IN CENTER -->	
 		</div>
 		<!-- /container -->
 

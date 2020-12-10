@@ -163,7 +163,18 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <p></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="reserve.jsp" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                <%
+                  if (client != null) {
+                    int id = f.getId();
+                %>
+                  <a href="reserve.jsp?field=<%=id%>" class="btn btn-sm btn-outline-secondary">Click για κράτηση</a>
+                <%
+                  } else {
+                %>
+                  <a class="btn btn-sm btn-outline-secondary" href="#" data-toggle="modal" data-target="#login" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Click για κράτηση</a>
+                <%
+                  }
+                %>
                 </div>
                 <small class="text-muted">Χωρητικότητα: <%=f.getCapacity()%> <i class='fas fa-user-alt'></i><br>Κόστος: <%=f.getCost()%>€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
@@ -191,6 +202,44 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       </div>
     </div>
   </div>
+
+<div class="modal" id="login" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="loginController.jsp" method="POST">
+    <div class="container">
+      <br>
+      <div class="alert alert-danger" role="alert" style="text-align: center;">
+        <i class="fas fa-exclamation-circle"></i> Πρέπει να συνδεθείτε
+      </div>
+      <div class="form-group">
+       <label for="exampleDropdownFormEmail1">Username</label>
+        <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+      </div>
+       <div class="form-group">
+          <label for="exampleDropdownFormPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
+        <label class="form-check-label" for="dropdownCheck">
+            Remember me
+        </label>
+        </div>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary" name="status" value="fields.jsp">Είσοδος</button>
+        </p>
+      </div>
+      <div class="dropdown-divider"></div>
+      <div style="text-align: center;">
+      <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
 
 <div class="modal" id="myModal" >
   <div class="modal-dialog modal-dialog-centered" role="document">

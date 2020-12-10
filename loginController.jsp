@@ -22,7 +22,7 @@ try{
         session.setAttribute("clientObj2020",client); 
         if (status.equals("fields.jsp") || status.equals("fields_rate.jsp")) {
             int sport = (Integer) session.getAttribute("sport");
-            String region = (String) session.getAttribute("region");
+            int region = (Integer) session.getAttribute("region");
 %>
 
         <jsp:forward page="<%=status%>">
