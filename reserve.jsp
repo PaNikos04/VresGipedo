@@ -109,7 +109,19 @@
             <h1>Κράτηση</h1>
           </div>
         </section>
-        <div class="bg_football">
+        <%
+          String background;
+          if (f.getIdCategory() == 1) {
+            background = "bg_football";
+          } else if (f.getIdCategory() == 2) {
+            background = "bg_basketball";
+          } else if (f.getIdCategory() == 3) {
+            background ="bg_volleyball";
+          } else {
+            background = "bg_tennis";
+          }
+        %>
+        <div class="<%=background%>">
           <div class="container">
             <div class="row">
               <div style="background-color: #e9ecef;">
@@ -182,22 +194,23 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
-                          <button type="submit" class="btn btn-success" style=" color: white; border-color: white; border-width: 2px;">check</button>
+                        <div class="col-xs-5 offset-xs-3 col-sm-5 offset-sm-3 col-md-5 offset-md-3">
+                          <button type="submit" class="btn btn-dark" style=" color: white; border-color: white; border-width: 2px;">Δες ώρες</button>
                         </div>
                         </div>
                     </form>
-                      <form role="form" id="myform" class="container" action="test.jsp" method="POST">
+                      <form role="form" id="myform" class="container" action="payment.jsp" method="POST">
                         <br>
                       <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
                           <div class="form-group">
-                            <label for="Date"><b>Ώρα: </b></label>
+                            <!--<label for="Date"><b>Ώρα: </b></label>-->
                             <%
                             int people = 0;
                             String m =request.getParameter("members");
                             String date = (request.getParameter("date"));
                             if(m != null && date != null){
+                              %><label for="Date"><b>Ώρα: </b></label><%
                               people = Integer.parseInt(m);
                               //out.println(people);
                               //out.println(date);
@@ -234,6 +247,8 @@
                           </div>
                         </div>
                       </div>
+                      <%if(m != null && date != null){
+                        %>
                       <div class="row">
                         <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
                           <button type="submit" class="btn btn-success" style=" color: white; border-color: white; border-width: 2px;">Υποβολή</button>
@@ -244,6 +259,9 @@
 
                         </div>
                       </div>
+                     <%
+                      }
+                      %>
                     </form>
                 </div>
               </div>
@@ -254,28 +272,27 @@
         <!-- Modal -->
 <div class="modal" id="myModal" >
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="modal-content animate" action="fields.jsp" method="post">
+  <form class="modal-content animate" action="fields.jsp" method="get">
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="exampleFormControlSelect1" name="sport">
           <option value="" selected disabled hidden>--- Άθλημα ---</option>
-          <option>Ποδόσφαιρο</option>
-          <option>Μπάσκετ</option>
-          <option>Βόλλευ</option>
-          <option>Τένις</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="" selected disabled hidden>--- 
-            Περιοχή ---</option>
-          <option>Χαλάνδρι</option>
-          <option>Κυψέλη</option>
-          <option>Πατήσια</option>
-          <option>Γαλάτσι</option>
-          <option>Μαρούσι</option>
+        <select class="form-control" id="exampleFormControlSelect1" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">
