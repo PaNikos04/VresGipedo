@@ -9,14 +9,14 @@ public class ReserveDao {
     public List<List<String>> getAvail(int idField, String date) throws Exception {
 
         List<List<String>> avails = new ArrayList<List<String>>();
-        List<String> row = new ArrayList<String>();
+
 
 				
 		DB db = new DB();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-        String sqlQuery = "SELECT hour, status as hour, status FROM ismgroup18.field_availability WHERE idField = ? AND date = ?;";
+        String sqlQuery = "SELECT hour, status FROM ismgroup18.field_availability WHERE idField = ? AND date = ?;";
         try {
 			con = db.getConnection();
 			stmt = con.prepareStatement(sqlQuery);
@@ -24,9 +24,10 @@ public class ReserveDao {
 			stmt.setString(2, date);
             rs = stmt.executeQuery();
             while(rs.next()) {
+				List<String> row = new ArrayList<String>();
                 row.add(rs.getString("hour"));
                 row.add(Integer.toString(rs.getInt("status")));
-                avails.add(row);
+				avails.add(row);
             }
 			rs.close();
             stmt.close();
