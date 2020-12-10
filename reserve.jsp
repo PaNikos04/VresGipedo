@@ -222,6 +222,8 @@
                         </div>
                         <div class="col-xs-9 col-sm-9 col-md-9">
                           <div class="form-group">
+                            <!--show how many members and what date are the results for-->
+                            Άτομα: <%out.println(people);%> <br>Ημερομηνία: <%out.println(date);%>
                             <table class="btn-group btn-group-toggle" data-toggle="buttons">
                               <tr>
                                 <%
