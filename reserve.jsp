@@ -145,7 +145,7 @@
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12">
                   <div style="background-color: #e9ecef; padding-bottom: 50px; padding-top: 50px;">
-                    <form role="form" class="container" action="payment.jsp" method="POST">
+                    <form role="form" class="container" action="test.jsp" method="POST">
                       <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
                           <div class="form-group">
@@ -182,9 +182,22 @@
                         </div>
                       </div>
                       <div class="row">
+                        <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
+                          <button type="submit" class="btn btn-success" style=" color: white; border-color: white; border-width: 2px;">check</button>
+                        </div>
+                        </div>
+                    </form>
+                      <form role="form" id="myform" class="container" action="test.jsp" method="POST">
+                        <br>
+                      <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
                           <div class="form-group">
                             <label for="Date"><b>Ώρα: </b></label>
+                            <%
+                            int members = Integer.parseInt(request.getParameter("members"));
+                            String date = (request.getParameter("date"));
+
+                            %>
                           </div>
                         </div>
                         <div class="col-xs-9 col-sm-9 col-md-9">
