@@ -14,16 +14,21 @@ String region = request.getParameter("region");
 String phone = request.getParameter("phone");
 
 if (password.equals(confirm)) {
+  try{
     Client client = new Client(name, surname, username, password, email, phone, region);
-    out.println(client.getName());
-    out.println(client.getId());
     ClientDao cldao = new ClientDao();
-    out.println(cldao.hello());
     cldao.register(client);
+  } catch(Exception e){
+    request.setAttribute("message","Το username ή το email είναι ήδη καταχωρημένα!");
+    %>
+    <jsp:forward page="registerform.jsp"/>
+    <%
+  }
 %>
   <jsp:forward page="mainpage.jsp"/> 
 <%  
 } else {
+  request.setAttribute("message","Λάθος επιβεβαίωση κωδικού!");
 %>
 <jsp:forward page="registerform.jsp"/>
 

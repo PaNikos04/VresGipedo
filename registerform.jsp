@@ -65,8 +65,14 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       </header>
 
       <main role="main">
-      
+        <br><br>
+        <div class="container">
+        <% if(request.getAttribute("message") != null) { %>		
+          <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+        <% } %>
+      </div>
       <div class="container" style="position:absolute; left: 30%; top:150px;">
+       
         <div class="row centered-form">
         
         	<div class="panel panel-default" style="width:170mm;">
