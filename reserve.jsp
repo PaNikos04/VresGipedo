@@ -167,16 +167,10 @@
                         <div class="col-xs-2 col-sm-2 col-md-2">
                           <div class="form-group">
                             <select class="custom-select" name="members" id="members" value="1">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10</option>
+                              <% for(int i=1; i<=f.getCapacity(); i++){ %>
+                              <option value="<%=i%>"><%=i%></option>
+                              <%}%>
+              
                             </select>
                           </div>
                         </div>
@@ -189,7 +183,7 @@
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4">
                           <div class="form-group">
-                            <input type="date" id="date" name="date" value="2020-12-02" min="2020-12-02" max="2021-01-02">
+                            <input type="date" id="date" name="date" value="2020-12-02" min="2020-12-02" max="2020-12-08">
                           </div>
                         </div>
                       </div>
@@ -223,7 +217,9 @@
                         <div class="col-xs-9 col-sm-9 col-md-9">
                           <div class="form-group">
                             <!--show how many members and what date are the results for-->
+                            <% if(m != null && date != null){ %>
                             Άτομα: <%out.println(people);%> <br>Ημερομηνία: <%out.println(date);%>
+                            <%}%>
                             <table class="btn-group btn-group-toggle" data-toggle="buttons">
                               <tr>
                                 <%

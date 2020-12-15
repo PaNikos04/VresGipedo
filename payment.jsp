@@ -56,7 +56,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           </ul>
           <div class="btn-group">
             <button type="button" class="btn btn-dark"  >
-            <i class='fas fa-user'></i> mariosdim
+            <i class='fas fa-user'></i> nap4000
             </button>    
           </div>
           <div class="btn-group">
@@ -92,12 +92,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                       <div class="col"> <label>Όνομα</label> <input class="form-control" id="name" placeholder="Μάριος" readonly> </div>
                       <div class="col"> <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="Δημητρίου" readonly> </div>
                   </div>
-                    <div class="col-lg-16"> <label>Email</label> <input class="form-control" id="email" placeholder="mdimitriou@gmail.com" readonly> </div>  
+                    <div class="col-lg-16"> <label>Email</label> <input class="form-control" id="email" placeholder="nap4000@gmail.com" readonly> </div>  
                     <div class="col-lg-16"> <label>Γήπεδο</label> <input class="form-control" id="field" placeholder="ΟΑΚΑ" readonly> </div>
                     <div class="col-lg-16"> <label>Διεύθυνση Γηπέδου</label> <input class="form-control" id="fieldaddress" placeholder="Σπύρου Λούη 28, Μαρούσι" readonly> </div>
                     <div class="col-lg-16"> <label>Τηλέφωνο Γηπέδου</label> <input class="form-control" id="fieldphone" placeholder="2106117676" readonly> </div>
                     <div class="form-group row">
-                      <div class="col"> <label>Ημερομηνία</label> <input class="form-control" id="date" placeholder="20/12/2020" readonly> </div>
+                      <div class="col"> <label>Ημερομηνία</label> <input class="form-control" id="date" placeholder="02/12/2020" readonly> </div>
                       <div class="col"> <label>Ώρα</label> <input class="form-control" id="hour" placeholder="17:00" readonly> </div>
                     </div>  
                     <div class="form-group row">
