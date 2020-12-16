@@ -86,7 +86,7 @@ String fregion = request.getParameter("fregion");
             </button>    
           </div>
           <div class="btn-group">
-            <a href="mainpage.jsp" class="btn btn-dark">
+            <a href="logout.jsp" class="btn btn-dark">
               <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
             </a>
           </div>
