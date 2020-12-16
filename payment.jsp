@@ -15,6 +15,7 @@ String fnumber = request.getParameter("number");
 String fphone = request.getParameter("phone");
 Double fcost = Double.parseDouble(request.getParameter("cost"));
 String fregion = request.getParameter("fregion");
+String fcateg = request.getParameter("categ");
 %>
 <%
   Field field = (Field)request.getAttribute("myfield");
@@ -228,7 +229,7 @@ String fregion = request.getParameter("fregion");
                                   </div>
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                                      <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                                     </div>
                                   </div>
                                 
@@ -257,7 +258,7 @@ String fregion = request.getParameter("fregion");
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                              <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                             </div>
                           </div>
                         </div>
@@ -281,7 +282,7 @@ String fregion = request.getParameter("fregion");
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <a href="reserve.jsp" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                              <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                             </div>
                           </div>
                         </div>

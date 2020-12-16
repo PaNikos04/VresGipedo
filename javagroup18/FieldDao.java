@@ -162,4 +162,34 @@ public class FieldDao {
 		}
 	}
 
+	public String getCategory(int idCategory) throws Exception {
+        String category;
+        DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+        String sqlQuery = "SELECT sport FROM ismgroup18.category WHERE idCategory = ?;";
+        try {
+			con = db.getConnection();
+			stmt = con.prepareStatement(sqlQuery);
+			stmt.setInt(1, idCategory);
+			rs = stmt.executeQuery();
+
+			if(!rs.next()) {
+				return null;
+            }
+            category = rs.getString("sport");
+			rs.close();
+			stmt.close();
+			return category;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				db.close();
+			} catch (Exception e) {
+				
+			}
+		}
+	}
 }

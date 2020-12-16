@@ -257,6 +257,7 @@
                         <input type="hidden" id="phone" name="phone" value="<%=f.getPhone()%>">
                         <input type="hidden" id="cost" name="cost" value="<%=f.getCost()%>">
                         <input type="hidden" id="fregion" name="fregion" value="<%=fdao.getRegion(f.getIdRegion())%>">
+                        <input type="hidden" id="categ" name="categ" value="<%=f.getIdCategory()%>">
 
                       <div class="row">
                         <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
