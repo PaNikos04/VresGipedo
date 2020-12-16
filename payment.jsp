@@ -76,9 +76,6 @@ String fregion = request.getParameter("fregion");
             <li class="nav-item">
               <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Βρες το γήπεδο σου</a>
-            </li>
           </ul>
           <div class="btn-group">
             <button type="button" class="btn btn-dark"  >
