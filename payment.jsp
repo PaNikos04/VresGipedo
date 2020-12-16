@@ -1,5 +1,31 @@
 <%@ page language="java" contentType="text/html;
 charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javagroup18.*, java.util.List"%>
+
+
+<%
+//get parameter from request
+request.setCharacterEncoding("UTF-8");
+String hour = request.getParameter("hour");
+Integer members = Integer.parseInt(request.getParameter("mymembers"));
+String date = request.getParameter("mydate");
+String ftitle = request.getParameter("title");
+String fstreet = request.getParameter("street");
+String fnumber = request.getParameter("number");
+String fphone = request.getParameter("phone");
+Double fcost = Double.parseDouble(request.getParameter("cost"));
+String fregion = request.getParameter("fregion");
+%>
+<%
+  Field field = (Field)request.getAttribute("myfield");
+  Client client = (Client)session.getAttribute("clientObj2020");
+  if (client == null) {
+    request.setAttribute("message","Δεν έχετε πρόσβαση σε αυτή τη σελίδα!");
+%>
+  <jsp:forward page="danger.jsp"/>
+<%
+  }
+%>
 
 <!doctype html>
 <html lang="en">
@@ -56,7 +82,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           </ul>
           <div class="btn-group">
             <button type="button" class="btn btn-dark"  >
-            <i class='fas fa-user'></i> nap4000
+            <i class='fas fa-user'></i> <%=client.getUsername()%>
             </button>    
           </div>
           <div class="btn-group">
@@ -89,22 +115,24 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 <div class="card-body">
                   <form class="forms-sample">
                     <div class="form-group row">
-                      <div class="col"> <label>Όνομα</label> <input class="form-control" id="name" placeholder="Μάριος" readonly> </div>
-                      <div class="col"> <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="Δημητρίου" readonly> </div>
+                      <div class="col"> <label>Όνομα</label> <input class="form-control" id="name" placeholder="<%=client.getName()%>" readonly> </div>
+                      <div class="col"> <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="<%=client.getSurname()%>" readonly> </div>
                   </div>
-                    <div class="col-lg-16"> <label>Email</label> <input class="form-control" id="email" placeholder="nap4000@gmail.com" readonly> </div>  
-                    <div class="col-lg-16"> <label>Γήπεδο</label> <input class="form-control" id="field" placeholder="ΟΑΚΑ" readonly> </div>
-                    <div class="col-lg-16"> <label>Διεύθυνση Γηπέδου</label> <input class="form-control" id="fieldaddress" placeholder="Σπύρου Λούη 28, Μαρούσι" readonly> </div>
-                    <div class="col-lg-16"> <label>Τηλέφωνο Γηπέδου</label> <input class="form-control" id="fieldphone" placeholder="2106117676" readonly> </div>
+                    <div class="col-lg-16"> <label>Email</label> <input class="form-control" id="email" placeholder="<%=client.getEmail()%>" readonly> </div>  
+                    <div class="col-lg-16"> <label>Γήπεδο</label> <input class="form-control" id="field" placeholder="<%=ftitle%>" readonly> </div>
+                    <div class="col-lg-16"> <label>Διεύθυνση Γηπέδου</label> <input class="form-control" id="fieldaddress" placeholder="<%=fstreet%> <%=fnumber%>, <%=fregion%>" readonly> </div>
+                    <div class="col-lg-16"> <label>Τηλέφωνο Γηπέδου</label> <input class="form-control" id="fieldphone" placeholder="<%=fphone%>" readonly> </div>
                     <div class="form-group row">
-                      <div class="col"> <label>Ημερομηνία</label> <input class="form-control" id="date" placeholder="02/12/2020" readonly> </div>
-                      <div class="col"> <label>Ώρα</label> <input class="form-control" id="hour" placeholder="17:00" readonly> </div>
+                      <div class="col"> <label>Ημερομηνία</label> <input class="form-control" id="date" placeholder="<%=date%>" readonly> </div>
+                      <div class="col"> <label>Ώρα</label> <input class="form-control" id="hour" placeholder="<%=hour%>" readonly> </div>
                     </div>  
                     <div class="form-group row">
-                      <div class="col"> <label>Άτομα</label><input class="form-control" id="people" placeholder="10" readonly> </div>
-                      <div class="col"> <label>Κόστος ανά άτομο</label> <input class="form-control" id="personalcost" placeholder="7,00€" readonly> </div>
+                      <div class="col"> <label>Άτομα</label><input class="form-control" id="people" placeholder="<%=members%>" readonly> </div>
+                      <div class="col"> <label>Κόστος ανά άτομο</label> <input class="form-control" id="personalcost" placeholder="<%=fcost%>€" readonly> </div>
                     </div>
-                    <div class="form-group"> <label>Συνολικό Κόστος</label> <input class="form-control" id="totalcost" placeholder="70,00€" readonly> </div>                          
+                    <% Double sumcost = members * fcost;
+                    %>
+                    <div class="form-group"> <label>Συνολικό Κόστος</label> <input class="form-control" id="totalcost" placeholder="<%=sumcost%>€" readonly> </div>                          
                   </div>
                 </form>
                 </div>

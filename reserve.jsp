@@ -13,6 +13,7 @@
   int id = Integer.parseInt(field);
   FieldDao fdao = new FieldDao();
   Field f = fdao.getField(id);
+  request.setAttribute("myfield",f);
 %>
 
 <!doctype html>
@@ -247,14 +248,23 @@
                       </div>
                       <%if(m != null && date != null){
                         %>
+
+                        <input type="hidden" id="mymembers" name="mymembers" value="<%=people%>">
+                        <input type="hidden" id="mydate" name="mydate" value="<%=date%>">
+                        <input type="hidden" id="title" name="title" value="<%=f.getTitle()%>">
+                        <input type="hidden" id="street" name="street" value="<%=f.getStreet()%>">
+                        <input type="hidden" id="number" name="number" value="<%=f.getNumber()%>">
+                        <input type="hidden" id="phone" name="phone" value="<%=f.getPhone()%>">
+                        <input type="hidden" id="cost" name="cost" value="<%=f.getCost()%>">
+                        <input type="hidden" id="fregion" name="fregion" value="<%=fdao.getRegion(f.getIdRegion())%>">
+
                       <div class="row">
                         <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">
                           <button type="submit" class="btn btn-success" style=" color: white; border-color: white; border-width: 2px;">Υποβολή</button>
 
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2">
-                          <button type="reset" class="btn btn-danger" style=" color: white; border-color: white; border-width: 2px;">Ακύρωση</button>
-
+                          <a href="fields.jsp?sport=<%=f.getIdCategory()%>&region=<%=f.getIdRegion()%>" class="btn btn-danger" style=" color: white; border-color: white; border-width: 2px;">Ακύρωση</a>
                         </div>
                       </div>
                      <%
@@ -266,6 +276,7 @@
             </div>
           </div>
         </div>
+        
 
         <!-- Modal -->
 <div class="modal" id="myModal" >
