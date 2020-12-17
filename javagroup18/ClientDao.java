@@ -15,7 +15,7 @@ public class ClientDao {
         Connection con = null;
         PreparedStatement stmt = null;
         String checkSql = "SELECT * FROM ismgroup18.client WHERE username = ? OR email = ?;";
-        String sql = "INSERT INTO ismgroup18.client (idClient, name, surname, username, password, email, phone, region) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO ismgroup18.client (name, surname, username, password, email, phone, region) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try {
             
             con = db.getConnection();
@@ -32,14 +32,13 @@ public class ClientDao {
             rs.close();
             
             stmt = con.prepareStatement(sql);
-            stmt.setInt(1, user.getId());
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getSurname());
-            stmt.setString(4, user.getUsername());
-            stmt.setString(5, user.getPassword());
-            stmt.setString(6, user.getEmail());
-            stmt.setString(7, user.getPhone());
-            stmt.setString(8, user.getRegion());
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getSurname());
+            stmt.setString(3, user.getUsername());
+            stmt.setString(4, user.getPassword());
+            stmt.setString(5, user.getEmail());
+            stmt.setString(6, user.getPhone());
+            stmt.setString(7, user.getRegion());
             stmt.executeUpdate();
             
             stmt.close();

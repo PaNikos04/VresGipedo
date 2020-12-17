@@ -10,7 +10,6 @@ public class Payment {
     private String fullname;
     private String email;
     private int id;
-    private static int count = 1;
 
     public Payment(String date, double cost, String credit_number, int exp_month, int exp_year, int cvv, String fullname, String email) {
         this.date = date;
@@ -19,9 +18,29 @@ public class Payment {
         this.exp_month = exp_month;
         this.exp_year = exp_year;
         this.cvv = cvv;
+        this.fullname = fullname;
         this.email = email;
-        count++;
-        this.id = count;
+    }
+
+    public Payment(String date, double cost, String credit_number, int exp_month, int exp_year, int cvv,
+            String fullname, String email, int id) {
+        this.date = date;
+        this.cost = cost;
+        this.credit_number = credit_number;
+        this.exp_month = exp_month;
+        this.exp_year = exp_year;
+        this.cvv = cvv;
+        this.fullname = fullname;
+        this.email = email;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDate() {
@@ -87,8 +106,6 @@ public class Payment {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    
     
     
 }

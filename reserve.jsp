@@ -248,7 +248,8 @@
                       </div>
                       <%if(m != null && date != null){
                         %>
-
+                        
+                        <input type="hidden" id="am" name="am" value="<%=f.getId()%>">
                         <input type="hidden" id="mymembers" name="mymembers" value="<%=people%>">
                         <input type="hidden" id="mydate" name="mydate" value="<%=date%>">
                         <input type="hidden" id="title" name="title" value="<%=f.getTitle()%>">
@@ -258,6 +259,7 @@
                         <input type="hidden" id="cost" name="cost" value="<%=f.getCost()%>">
                         <input type="hidden" id="fregion" name="fregion" value="<%=fdao.getRegion(f.getIdRegion())%>">
                         <input type="hidden" id="categ" name="categ" value="<%=f.getIdCategory()%>">
+
 
                       <div class="row">
                         <div class="col-xs-2 offset-xs-3 col-sm-2 offset-sm-3 col-md-2 offset-md-3">

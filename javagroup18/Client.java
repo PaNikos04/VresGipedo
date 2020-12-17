@@ -9,7 +9,6 @@ public class Client {
     private String phone;
     private String region;
     private int id;
-    private static int count = 40;
 
     public Client(String name, String surname, String username, String password, String email, String phone,
             String region) {
@@ -20,8 +19,18 @@ public class Client {
         this.email = email;
         this.phone = phone;
         this.region = region;
-        count++;
-        this.id = count;
+    }
+
+    public Client(String name, String surname, String username, String password, String email, String phone,
+            String region, int id) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.region = region;
+        this.id = id;
     }
 
     public String getName() {

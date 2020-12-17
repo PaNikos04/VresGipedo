@@ -16,6 +16,8 @@ String fphone = request.getParameter("phone");
 Double fcost = Double.parseDouble(request.getParameter("cost"));
 String fregion = request.getParameter("fregion");
 String fcateg = request.getParameter("categ");
+String myid = request.getParameter("am");
+
 %>
 <%
   Field field = (Field)request.getAttribute("myfield");
@@ -145,6 +147,7 @@ String fcateg = request.getParameter("categ");
     </script>
 
 
+
   <div class="container py-5">
     <div class="row mb-4">
         <div class="col-lg-8 mx-auto text-center">
@@ -167,50 +170,50 @@ String fcateg = request.getParameter("categ");
                     <div class="tab-content">
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
-                            <form role="form" action="mainpage.jsp" method="POST">
+                            <form role="form" action="pay_reserveController.jsp" method="POST">
                               <div class="form-group"> 
                                 <label for="cardNumber">
                                 <h6>Αριθμός Κάρτας</h6>
                                 </label>
-                                <div class="input-group"> <input type="text" name="cardNumber" placeholder="Αριθμός Κάρτας" class="form-control " maxlength="16" required>
+                                <div class="input-group"> <input type="text" name="creditnumber" placeholder="Αριθμός Κάρτας" class="form-control " maxlength="16" required>
                                   <div class="input-group-append"> <span class="input-group-text text-muted"> 
                                     <i class="fab fa-cc-visa mx-1"></i> 
                                     <i class="fab fa-cc-mastercard mx-1"></i> 
                                     <i class="fab fa-cc-amex mx-1"></i> </span> </div>
                                 </div>
                             </div>
-                                <div class="form-group"> <label for="username">
+                                <div class="form-group"> <label for="fullname">
                                         <h6>Ονοματεπώνυμο Κατόχου Κάρτας</h6>
-                                    </label> <input type="text" name="username" placeholder="Ονοματεπώνυμο Κατόχου Κάρτας" required class="form-control "> </div>
+                                    </label> <input type="text" name="fullname" placeholder="Ονοματεπώνυμο Κατόχου Κάρτας" required class="form-control "> </div>
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="form-group"> <label><span class="hidden-xs">
                                                     <h6>Ημερομηνία Λήξης</h6>
                                                 </span></label>
                                             <div class="input-group"> 
-                                              <select class="form-control" id="exampleFormControlSelect1" required>
+                                              <select class="form-control" id="exampleFormControlSelect1" name="month" required>
                                                 <option value="" selected disabled hidden>MM</option>
-                                                <option>01</option>
-                                                <option>02</option>
-                                                <option>03</option>
-                                                <option>04</option>
-                                                <option>05</option>
-                                                <option>06</option>
-                                                <option>07</option>
-                                                <option>08</option>
-                                                <option>09</option>
-                                                <option>10</option>
-                                                <option>11</option>
-                                                <option>12</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
                                               </select>
-                                              <select class="form-control" id="exampleFormControlSelect1" required>
+                                              <select class="form-control" id="exampleFormControlSelect1" name="year" required>
                                                 <option value="" selected disabled hidden>YY</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                                <option>2022</option>
-                                                <option>2023</option>
-                                                <option>2024</option>
-                                                <option>2025</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
                                               </select>
                                             </div>
                                         </div>
@@ -218,18 +221,24 @@ String fcateg = request.getParameter("categ");
                                     <div class="col-sm-4">
                                         <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
                                                 <h6>CVV <i class="fa fa-question-circle d-inline" ></i></h6>
-                                            </label> <input type="text" required class="form-control" maxlength="3"> </div>
+                                            </label> <input type="text" required class="form-control" name="cvv" maxlength="3"> </div>
                                     </div>
                                 </div>
+                                <input type="hidden" id="cost" name="cost" value="<%=sumcost%>">
+                                <input type="hidden" id="currentdate" name="paydate" value="<%=PaymentDao.getMyDate()%>">
+                                <input type="hidden" id="date" name="date" value="<%=date%>">
+                                <input type="hidden" id="hour" name="hour" value="<%=hour%>">
+                                <input type="hidden" id="members" name="members" value="<%=members%>">
+                                <input type="hidden" id="fid" name="fid" value="<%=myid%>">
                                 <div class="row">
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                      <button type="submit" name="form" value="1" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                                     </div>
                                   </div>
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                                      <a href="reserve.jsp?field=<%=myid%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                                     </div>
                                   </div>
                                 
@@ -239,13 +248,19 @@ String fcateg = request.getParameter("categ");
                     <!-- Paypal info -->
                     
                     <div id="paypal" class="tab-pane fade pt-3">
-                      <form role="form" action="mainpage.jsp" method="POST">
+                      <form role="form" action="pay_reserveController.jsp" method="POST">
                       <div class="form-group"> 
                         <label for="username">
                         <h6>Email Κατόχου</h6>
                     </label> 
                     <input type="email" name="email" placeholder="Email Κατόχου" class="form-control" required> 
                   </div>
+                  <input type="hidden" id="cost" name="cost" value="<%=sumcost%>">
+                  <input type="hidden" id="currentdate" name="paydate" value="<%=PaymentDao.getMyDate()%>">
+                  <input type="hidden" id="date" name="date" value="<%=date%>">
+                  <input type="hidden" id="hour" name="hour" value="<%=hour%>">
+                  <input type="hidden" id="members" name="members" value="<%=members%>">
+                  <input type="hidden" id="fid" name="fid" value="<%=myid%>">
                         <h6 class="pb-2">Διαλέξτε το είδος του λογαριασμού</h6>
                         <div class="form-group "> 
                           <label class="radio-inline"> <input type="radio" name="optradio" checked> Εγχώριος </label> 
@@ -253,12 +268,12 @@ String fcateg = request.getParameter("categ");
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <p> <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                              <p> <button type="submit" name="form" value="2" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                              <a href="reserve.jsp?field=<%=myid%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                             </div>
                           </div>
                         </div>
@@ -266,7 +281,7 @@ String fcateg = request.getParameter("categ");
                     </div> <!-- End -->
                     <!-- bank transfer info -->
                     <div id="cash" class="tab-pane fade pt-3">
-                      <form role="form" action="mainpage.jsp" method="POST">
+                      <form role="form" action="pay_reserveController.jsp" method="POST">
                         <div class="form-group ">
                           <div class="checkbox">
                             <label>
@@ -274,15 +289,21 @@ String fcateg = request.getParameter("categ");
                             </label>
                           </div>
                         </div>
+                        <input type="hidden" id="cost" name="cost" value="<%=sumcost%>">
+                        <input type="hidden" id="currentdate" name="paydate" value="<%=PaymentDao.getMyDate()%>">
+                        <input type="hidden" id="date" name="date" value="<%=date%>">
+                        <input type="hidden" id="hour" name="hour" value="<%=hour%>">
+                        <input type="hidden" id="members" name="members" value="<%=members%>">
+                        <input type="hidden" id="fid" name="fid" value="<%=myid%>">
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <button type="submit" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                              <button type="submit" name="form" value="3" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <a href="reserve.jsp?sport=<%=fcateg%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
+                              <a href="reserve.jsp?field=<%=myid%>" class="subscribe btn btn-danger btn-block shadow-sm"> Ακύρωση</a>
                             </div>
                           </div>
                         </div>
