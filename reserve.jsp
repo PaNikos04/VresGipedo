@@ -100,6 +100,18 @@
                   <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
                 </a>
               </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='fas fa-user'></i> <%=client.getUsername()%>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
+                  <div class="btn-group container">
+                    <a href="logout.jsp" class="btn btn-dark">
+                      <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+                    </a>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </nav>
