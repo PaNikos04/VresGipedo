@@ -233,7 +233,7 @@ String myid = request.getParameter("am");
                                 <div class="row">
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <button type="submit" name="form" value="1" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                      <button type="submit" name="form" value="1"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                                     </div>
                                   </div>
                                   <div class="col-xs-6 col-sm-6 col-md-6">
@@ -268,7 +268,7 @@ String myid = request.getParameter("am");
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <p> <button type="submit" name="form" value="2" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
+                              <p> <button type="submit" name="form" value="2"  class="subscribe btn btn-primary btn-block shadow-sm"><i class="fab fa-paypal mr-2"></i> Σύνδεση σε Paypal</button> </p>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
@@ -298,7 +298,7 @@ String myid = request.getParameter("am");
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <button type="submit" name="form" value="3" onclick="completePayment()" class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                              <button type="submit" name="form" value="3"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
