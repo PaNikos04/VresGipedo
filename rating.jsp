@@ -2,6 +2,21 @@
 charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javagroup18.*, java.util.List"%>
 
+<%
+  Client client = (Client)session.getAttribute("clientObj2020");
+  if (client == null) {
+    request.setAttribute("message","Δεν έχετε πρόσβαση σε αυτή τη σελίδα!");
+  %>
+  <jsp:forward page="danger.jsp"/>
+  <%
+  }
+  String field = request.getParameter("field");
+  int id = Integer.parseInt(field);
+  FieldDao fdao = new FieldDao();
+  Field f = fdao.getField(id);
+  request.setAttribute("myfield",f);
+%>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -107,15 +122,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Βρες το γήπεδο σου</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" >Αξιολόγησε γήπεδο</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
             </li>
           </ul>
           <div class="btn-group">
             <button type="button" class="btn btn-dark" >
-            <i class='fas fa-user'></i> nap4000
+            <i class='fas fa-user'></i> <%=client.getUsername()%>
             </button>
           </div>
           <div class="btn-group">
@@ -135,19 +147,32 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       <h1>Η Γνώμη Σου Μετράει</h1>
     </div>
   </section>
+  <%
+          String background;
+          if (f.getIdCategory() == 1) {
+            background = "bg_football";
+          } else if (f.getIdCategory() == 2) {
+            background = "bg_basketball";
+          } else if (f.getIdCategory() == 3) {
+            background ="bg_volleyball";
+          } else {
+            background = "bg_tennis";
+          }
+        %>
 
-<div class="bg_football">
+<div class="<%=background%>">
   <div class="container">
     <div class="row">
         <div class="col" style="background-color: #e9ecef; padding-bottom: 50px;">
             <h3 style="color: black;">Στοιχεία Γηπέδου:</h3>
-            <h5 style="color: black;">ΟΑΚΑ</h5>
-            <h5 style="color: black;">Σπύρου Λούη 28, Μαρούσι</h5>
-            <h5 style="color: black;">2106117676</h5>
+            <h5 style="color: black;"><%=f.getTitle()%></h5>
+            <h5 style="color: black;"><%=f.getStreet()%> <%=f.getNumber()%>, <%=fdao.getRegion(f.getIdRegion())%></h5>
+            <h5 style="color: black;"><%=f.getPhone()%></h5>
             <br>
             <h3 style="color: black;">Η Βαθμολογία σου:</h3>
             <form id="rating"
             method="post"
+            action="rateController.jsp"
             action-xhr="https://amp.dev/documentation/examples/interactivity-dynamic-content/star_rating/set"
             target="_blank">
             <fieldset class="rating">
@@ -204,7 +229,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               </template>
             </div> 
           -->
-          </form>
+          
           <br>
           <h3 style="color: black;">Άφησε το σχόλιό σου: </h3>
             <div class="form-group">
@@ -212,13 +237,88 @@ charset=UTF-8" pageEncoding="UTF-8"%>
               <textarea class="form-control" rows="5" id="comment" maxlength="140"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Υποβολή Αξιολόγησης</button>
+          </form>
         </div>
 <div class="col">
-    <img src="images/football_5x5.jpg" class="d-block w-100" alt="football" width="300" height="300" style="border-radius: 8px;">
+    <img src="<%=f.getUrl()%>" class="d-block w-100" alt="<%=f.getTitle()%>" width="300" height="300" style="border-radius: 8px;">
 </div>
     </div>
     </div>
 </div>
+
+        <!-- Modal -->
+        <div class="modal" id="myModal" >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+          <form class="modal-content animate" action="fields.jsp" method="get">
+            <div class="container">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+                <select class="form-control" id="exampleFormControlSelect1" name="sport">
+                  <option value="" selected disabled hidden>--- Άθλημα ---</option>
+                  <option value="1">Ποδόσφαιρο</option>
+                  <option value="2">Μπάσκετ</option>
+                  <option value="3">Βόλλευ</option>
+                  <option value="4">Τένις</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+                <select class="form-control" id="exampleFormControlSelect1" name="region">
+                  <option value="" selected disabled hidden>--- Περιοχή ---</option>
+                  <option value="1">Χαλάνδρι</option>
+                  <option value="2">Κυψέλη</option>
+                  <option value="3">Πατήσια</option>
+                  <option value="4">Γαλάτσι</option>
+                  <option value="5">Μαρούσι</option>
+                </select>
+              </div>
+              <div class="col-xs-offset-4 col-xs-8">
+                <p style="text-align: center;">
+                  <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
+        
+        <!-- Modal2 -->
+<div class="modal" id="myModal2" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="fields_rate.jsp" method="post">
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="sport" name="sport">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+        <select class="form-control" id="sport" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
+        </select>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+
 </main>
 
 <footer class="navbar-inverse navbar-expand-md navbar-dark  bg-dark">

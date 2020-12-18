@@ -3,14 +3,18 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javagroup18.*, java.util.List"%>
 
 <%
+  request.setCharacterEncoding("UTF-8");
   String s = request.getParameter("sport");
-  String region = request.getParameter("region");
-  if(s == null || region == null){
+  String r = request.getParameter("region");
+  if(s == null || r == null){
     response.sendRedirect("mainpage.jsp");
     return;
 }
   int sport = Integer.parseInt(s);
+  int region = Integer.parseInt(r);
   Client client = (Client)session.getAttribute("clientObj2020");
+  FieldDao fdao = new FieldDao();
+  List<Field> fields = fdao.getFields(sport, region);
 %>
 
 <!doctype html>
@@ -62,8 +66,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             <li class="nav-item">
               <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Αξιολόγησε γήπεδο</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
             </li>
           </ul>
 
@@ -150,111 +154,130 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     <div class="container">
 
       <div class="row">
+        <%
+          for (Field f : fields) {
+        %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="images/football_5x5.jpg" class="d-block w-100" alt="football" width="100" height="200">
+            <img src="<%=f.getUrl()%>" class="d-block w-100" alt="<%=f.getTitle()%>" width="100" height="200">
             <div class="card-body">
-              <p class="card-text">ΟΑΚΑ <br>Σπύρου Λούη 28, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106117676</p>
+              <p class="card-text"><%=f.getTitle()%> <br><%=f.getStreet()%> <%=f.getNumber()%>, <%=fdao.getRegion(f.getIdRegion())%><br><i class="fas fa-phone fa-flip-horizontal"></i> <%=f.getPhone()%></p>
               <p></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="rating.jsp" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
+                  <%
+                  if (client != null) {
+                    int id = f.getId();
+                %>
+                  <a href="rating.jsp?field=<%=id%>" class="btn btn-sm btn-outline-secondary">Αξιολόγηση εδώ</a>
+                <%
+                  } else {
+                %>
+                  <a class="btn btn-sm btn-outline-secondary" href="#" data-toggle="modal" data-target="#login" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Αξιολόγηση εδώ</a>
+                <%
+                  }
+                %>
                 </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
+                <small class="text-muted">Χωρητικότητα: <%=f.getCapacity()%> <i class='fas fa-user-alt'></i><br>Κόστος: <%=f.getCost()%>€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
                   <!--rating with checked stars-->
+                  <%int stars = fdao.getFieldRating(f.getId());
+                    int empty = 5 - stars;
+                    for (int i = 0; i < stars; i++) {
+                  %>
                   <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
+                  <%
+                    }
+                    for (int i = 0; i < empty; i++) {
+                  %>
                   <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span></small>
+                  <%
+                    }
+                  %>
+                </small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football_7x7.jpg" class="d-block w-100" alt="football" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Δημοτικό Γήπεδο Αμαρουσίου <br>Αγίου Δημητρίου 34, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106174676</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 6€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football1.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">1ο Αμαρουσίου <br>Φωκαίας 23, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106177432</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football2.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Football Arena <br>Εθνικής Αντισάεως 56, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106157497</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 14 <i class='fas fa-user-alt'></i><br>Κόστος: 8€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="images/football3.jpg" class="d-block w-100" alt="volleyball" width="100" height="200">
-            <div class="card-body">
-              <p class="card-text">Da Luz <br>Πειραιώς 167, Μαρούσι<br><i class="fas fa-phone fa-flip-horizontal"></i> 2106179883</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Αξιολόγησε γήπεδο</a>
-                </div>
-                <small class="text-muted">Χωρητικότητα: 10 <i class='fas fa-user-alt'></i><br>Κόστος: 7€/<i class='fas fa-user-alt'></i><br>Βαθμολογία: 
-                  <!--rating with checked stars-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span></small></small>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%
+          }
+        %>
       </div>
     </div>
   </div>
+
+  <div class="modal" id="login" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <form class="modal-content animate" action="loginController.jsp" method="POST">
+      <div class="container">
+        <br>
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+          <i class="fas fa-exclamation-circle"></i> Πρέπει να συνδεθείτε
+        </div>
+        <div class="form-group">
+         <label for="exampleDropdownFormEmail1">Username</label>
+          <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+        </div>
+         <div class="form-group">
+            <label for="exampleDropdownFormPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
+          <label class="form-check-label" for="dropdownCheck">
+              Remember me
+          </label>
+          </div>
+        </div>
+        <div class="col-xs-offset-4 col-xs-8">
+          <p style="text-align: center;">
+            <button type="submit" class="btn btn-primary" name="status" value="fields_rate.jsp">Είσοδος</button>
+          </p>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div style="text-align: center;">
+        <a class="dropdown-item" href="registerform.jsp">Νέος εδώ; Κάνε εγγραφή!</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  
+  <div class="modal" id="myModal" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <form class="modal-content animate" action="fields_rate.jsp" method="GET">
+      <div class="container">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+          <select class="form-control" id="exampleFormControlSelect1" name="sport">
+            <option value="" selected disabled hidden>--- Άθλημα ---</option>
+            <option value="1">Ποδόσφαιρο</option>
+            <option value="2">Μπάσκετ</option>
+            <option value="3">Βόλλευ</option>
+            <option value="4">Τένις</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+          <select class="form-control" id="exampleFormControlSelect1" name="region">
+            <option value="" selected disabled hidden>--- Περιοχή ---</option>
+            <option value="1">Χαλάνδρι</option>
+            <option value="2">Κυψέλη</option>
+            <option value="3">Πατήσια</option>
+            <option value="4">Γαλάτσι</option>
+            <option value="5">Μαρούσι</option>
+          </select>
+        </div>
+        <div class="col-xs-offset-4 col-xs-8">
+          <p style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+
 </main>
 
 <footer class="navbar-inverse navbar-expand-md navbar-dark bg-dark">
@@ -262,8 +285,8 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <p>&copy; Copyright 2020 by ismgroup18</p>
   </div>
 </footer>
-
+</body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>  
     </body>
-      </html>
+    </html>

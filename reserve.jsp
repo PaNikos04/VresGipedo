@@ -86,9 +86,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
-              </li>
             </ul>
               <div class="btn-group">
                 <button type="button" class="btn btn-dark"  >
@@ -162,7 +159,7 @@
                         }
                       %>
                     </p>
-                    <a href="rating.jsp" class="btn btn-outline-secondary">Αξιολόγησε το γήπεδο</a>
+                    <a href="rating.jsp?field=<%=f.getId()%>" class="btn btn-outline-secondary">Αξιολόγησε το γήπεδο</a>
                     <br>
                     <br>
                   </div>
@@ -336,24 +333,23 @@
     <div class="container">
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="sport" name="sport">
           <option value="" selected disabled hidden>--- Άθλημα ---</option>
-          <option>Ποδόσφαιρο</option>
-          <option>Μπάσκετ</option>
-          <option>Βόλλευ</option>
-          <option>Τένις</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="" selected disabled hidden>--- 
-            Περιοχή ---</option>
-          <option>Χαλάνδρι</option>
-          <option>Κυψέλη</option>
-          <option>Πατήσια</option>
-          <option>Γαλάτσι</option>
-          <option>Μαρούσι</option>
+        <select class="form-control" id="sport" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
         </select>
       </div>
       <div class="col-xs-offset-4 col-xs-8">
