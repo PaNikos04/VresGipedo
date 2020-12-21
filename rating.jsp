@@ -174,7 +174,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             method="post"
             action="rateController.jsp"
             action-xhr="https://amp.dev/documentation/examples/interactivity-dynamic-content/star_rating/set"
-            target="_blank">
+            >
             <fieldset class="rating">
               <input name="rating"
                 type="radio"
@@ -234,9 +234,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <h3 style="color: black;">Άφησε το σχόλιό σου: </h3>
             <div class="form-group">
               <label for="comment"></label>
-              <textarea class="form-control" rows="5" id="comment" maxlength="140"></textarea>
+              <textarea class="form-control" name="comment" rows="5" id="comment" maxlength="140"></textarea>
             </div>
+            <input type="hidden" id="am" name="am" value="<%=f.getId()%>">
             <button type="submit" class="btn btn-primary">Υποβολή Αξιολόγησης</button>
+            <a href="fields_rate.jsp?sport=<%=f.getIdCategory()%>&region=<%=f.getIdRegion()%>" class="btn btn-danger" style=" color: white; border-color: white; border-width: 2px;">Ακύρωση</a>
           </form>
         </div>
 <div class="col">
