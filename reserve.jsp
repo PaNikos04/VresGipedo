@@ -102,11 +102,23 @@
                 <i class='fas fa-user'></i> <%=client.getUsername()%>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
+                  <form class="px-4 py-2">
+                  <div class="btn-group container" >
+                    <a href="#" class="btn btn-dark" style="width: 200px;"> Οι κρατήσεις μου</a>
+                  </div>
+                  <p><hr style="border-top: 2px solid #bbb;
+                    border-radius: 5px;"></p>
+                  <div class="btn-group container">
+                    <a href="#" class="btn btn-dark"> Οι αξιολογήσεις μου</a>
+                  </div>
+                  <p><hr style="border-top: 2px solid #bbb;
+                    border-radius: 5px;"></p>
                   <div class="btn-group container">
                     <a href="logout.jsp" class="btn btn-dark">
                       <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
                     </a>
                   </div>
+                </form>
                 </div>
               </div>
             
