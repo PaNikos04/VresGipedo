@@ -87,16 +87,7 @@
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
               </li>
             </ul>
-              <div class="btn-group">
-                <button type="button" class="btn btn-dark"  >
-                <i class='fas fa-user'></i> <%=client.getUsername()%>
-                </button>    
-              </div>
-              <div class="btn-group">
-                <a href="logout.jsp" class="btn btn-dark">
-                  <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
-                </a>
-              </div>
+              
               <div class="btn-group">
                 <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class='fas fa-user'></i> <%=client.getUsername()%>
@@ -104,12 +95,7 @@
                 <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
                   <form class="px-4 py-2">
                   <div class="btn-group container" >
-                    <a href="#" class="btn btn-dark" style="width: 200px;"> Οι κρατήσεις μου</a>
-                  </div>
-                  <p><hr style="border-top: 2px solid #bbb;
-                    border-radius: 5px;"></p>
-                  <div class="btn-group container">
-                    <a href="#" class="btn btn-dark"> Οι αξιολογήσεις μου</a>
+                    <a href="myprofile.jsp" class="btn btn-dark" style="width: 200px;"> Το προφίλ μου</a>
                   </div>
                   <p><hr style="border-top: 2px solid #bbb;
                     border-radius: 5px;"></p>

@@ -81,14 +81,23 @@ String myid = request.getParameter("am");
             </li>
           </ul>
           <div class="btn-group">
-            <button type="button" class="btn btn-dark"  >
+            <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class='fas fa-user'></i> <%=client.getUsername()%>
-            </button>    
-          </div>
-          <div class="btn-group">
-            <a href="logout.jsp" class="btn btn-dark">
-              <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
-            </a>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
+              <form class="px-4 py-2">
+              <div class="btn-group container" >
+                <a href="myprofile.jsp" class="btn btn-dark" style="width: 200px;"> Το προφίλ μου</a>
+              </div>
+              <p><hr style="border-top: 2px solid #bbb;
+                border-radius: 5px;"></p>
+              <div class="btn-group container">
+                <a href="logout.jsp" class="btn btn-dark">
+                  <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+                </a>
+              </div>
+            </form>
+            </div>
           </div>
           
         </div>
