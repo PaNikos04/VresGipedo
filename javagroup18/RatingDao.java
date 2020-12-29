@@ -92,4 +92,36 @@ public class RatingDao {
 			}
 		}
     }
+
+    public List<Rating> getRatings(int idClient) throws Exception {
+
+        List<Rating> ratings = new ArrayList<Rating>();
+				
+		DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+        String sqlQuery = "SELECT * FROM ismgroup18.rating WHERE id_Client = ?;";
+        try {
+			con = db.getConnection();
+			stmt = con.prepareStatement(sqlQuery);
+			stmt.setInt(1, idClient);
+            rs = stmt.executeQuery();
+            while(rs.next()) {
+                ratings.add(new Rating(rs.getInt("id_Client"), rs.getInt("id__Field"), rs.getInt("stars"), rs.getString("comments")));
+            }
+			rs.close();
+            stmt.close();
+            return ratings;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				db.close();
+			} catch (Exception e) {
+				
+			}
+		}
+
+	}
 }

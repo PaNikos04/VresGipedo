@@ -77,7 +77,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     <p><hr style="border-top: 2px solid #bbb;
       border-radius: 5px;"></p>
     <div class="btn-group container" >
-      <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
+      <a href="myratings.jsp" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
     </div>
     <p><hr style="border-top: 2px solid #bbb;
       border-radius: 5px;"></p>
