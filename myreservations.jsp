@@ -12,6 +12,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   }
   %>
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,7 +21,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Vres Gipedo - Προφίλ Χρήστη</title>
+    <title>Vres Gipedo - Κρατήσεις Χρήστη</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 
@@ -73,56 +74,87 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#" >Το προφίλ μου</a>
+                <a class="nav-link" href="#" >Οι κρατήσεις μου</a>
               </li>
             </ul>
             <div class="btn-group">
-              <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class='fas fa-user'></i> <%=client.getUsername()%>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
-                <form class="px-4 py-2">
-                <div class="btn-group container" >
-                  <a href="myreservations.jsp" class="btn btn-dark" style="width: 200px;"> Οι κρατήσεις μου</a>
+                <button type="button" class="btn btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='fas fa-user'></i> <%=client.getUsername()%>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
+                  <form class="px-4 py-2">
+                  <div class="btn-group container" >
+                    <a href="myreservations.jsp" class="btn btn-dark" style="width: 200px;"> Οι κρατήσεις μου</a>
+                  </div>
+                  <p><hr style="border-top: 2px solid #bbb;
+                    border-radius: 5px;"></p>
+                  <div class="btn-group container" >
+                    <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
+                  </div>
+                  <p><hr style="border-top: 2px solid #bbb;
+                    border-radius: 5px;"></p>
+                  <div class="btn-group container" >
+                    <a href="myprofile.jsp" class="btn btn-dark" style="width: 200px;"> Το προφίλ μου</a>
+                  </div>
+                  <p><hr style="border-top: 2px solid #bbb;
+                    border-radius: 5px;"></p>
+                  <div class="btn-group container">
+                    <a href="logout.jsp" class="btn btn-dark">
+                      <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
+                    </a>
+                  </div>
+                </form>
                 </div>
-                <p><hr style="border-top: 2px solid #bbb;
-                  border-radius: 5px;"></p>
-                <div class="btn-group container" >
-                  <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
-                </div>
-                <p><hr style="border-top: 2px solid #bbb;
-                  border-radius: 5px;"></p>
-                <div class="btn-group container" >
-                  <a href="myprofile.jsp" class="btn btn-dark" style="width: 200px;"> Το προφίλ μου</a>
-                </div>
-                <p><hr style="border-top: 2px solid #bbb;
-                  border-radius: 5px;"></p>
-                <div class="btn-group container">
-                  <a href="logout.jsp" class="btn btn-dark">
-                    <i class="fas fa-sign-out-alt"></i> Αποσύνδεση
-                  </a>
-                </div>
-              </form>
               </div>
-            </div>
             
           </div>
         </nav>
       </header>
 
     <main role="main">
-        <br><br>
-        <div class="container">
-            <ul>
-                <li><h1>Όνομα: <%=client.getName()%></h1></li>
-                <li><h1>Επώνυμο: <%=client.getSurname()%></h1></li>
-                <li><h1>Όνομα Χρήστη: <%=client.getUsername()%></h1></li>
-                <li><h1>Email: <%=client.getEmail()%></h1></li>
-                <li><h1>Τηλέφωνο: <%=client.getPhone()%></h1></li>
-                <li><h1>Περιοχή: <%=client.getRegion()%></h1></li>
-            </ul>
-        </div>
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1>Κρατήσεις</h1>
+            </div>
+          </section>
+          <br>
+        <%
+  PaymentDao paydao = new PaymentDao();
+  int idCli = paydao.getIdClient(client.getUsername());
+  GameDao gamedao = new GameDao();
+  List<Integer> myids = gamedao.getmyids(idCli);
+      %>
 
+    <div class="container">
+        <table class="table  table-hover table-bordered">
+                    <tr>
+                        <th></th>
+                        <th>Γήπεδο</th>
+                        <th>Ημερομηνία</th>
+                        <th>Ώρα</th>
+                        <th>Συμμετέχοντες</th>
+                    </tr>
+      <%
+ for(int i: myids){
+   Game game = gamedao.getGame(i);
+   FieldDao fdao = new FieldDao();
+   Field field = fdao.getField(game.getIdField());
+   %>
+   <tr>
+    <td width="300"><img src="<%=field.getUrl()%>" class="d-block w-100" alt="<%=field.getTitle()%>" width="50" height="140"></td>
+    <td><%=field.getTitle()%></td>
+    <td><%=game.getGame_date()%></td>
+    <td><%=game.getGame_hour()%></td>
+    <td><%=game.getParticipants()%></td>
+  </tr>
+   <%
+  } 
+  
+  %>
+
+
+                </table>
+    </div>
 
 
 
@@ -202,7 +234,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 
   <!-- FOOTER -->
   <!-- footer -->
-  <footer class="navbar-inverse navbar-expand-md navbar-dark fixed-bottom bg-dark">
+  <footer class="navbar-inverse navbar-expand-md navbar-dark  bg-dark">
     <div class="container">
           <p>&copy; Copyright 2020 by ismgroup18</p>
     </div>

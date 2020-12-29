@@ -51,10 +51,7 @@
         body{
             background-color: rgb(204, 202, 206);
         }
-        label{
-          color: black;
-          text-shadow: 2px 2px 3px black;
-        }
+        
         p{
           color: black;
         }

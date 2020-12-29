@@ -72,6 +72,16 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(124, 124, 124);" >
     <form class="px-4 py-2">
     <div class="btn-group container" >
+      <a href="myreservations.jsp" class="btn btn-dark" style="width: 200px;"> Οι κρατήσεις μου</a>
+    </div>
+    <p><hr style="border-top: 2px solid #bbb;
+      border-radius: 5px;"></p>
+    <div class="btn-group container" >
+      <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
+    </div>
+    <p><hr style="border-top: 2px solid #bbb;
+      border-radius: 5px;"></p>
+    <div class="btn-group container" >
       <a href="myprofile.jsp" class="btn btn-dark" style="width: 200px;"> Το προφίλ μου</a>
     </div>
     <p><hr style="border-top: 2px solid #bbb;
