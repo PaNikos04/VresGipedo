@@ -123,6 +123,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   int idCli = paydao.getIdClient(client.getUsername());
   GameDao gamedao = new GameDao();
   List<Integer> myids = gamedao.getmyids(idCli);
+    int a = 0;
+    if(a==0){
+%>
+      <h1>Καμία κράτηση...</h1>
+<%
+    } else{
       %>
 
     <div class="container">
@@ -149,7 +155,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   </tr>
    <%
   } 
-  
+}
   %>
 
 
