@@ -89,7 +89,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                   <p><hr style="border-top: 2px solid #bbb;
                     border-radius: 5px;"></p>
                   <div class="btn-group container" >
-                    <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
+                    <a href="myratings.jsp" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
                   </div>
                   <p><hr style="border-top: 2px solid #bbb;
                     border-radius: 5px;"></p>
@@ -112,24 +112,120 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       </header>
 
     <main role="main">
-        <section class="jumbotron text-center">
-            <div class="container">
-              <h1>Κρατήσεις</h1>
-            </div>
-          </section>
-          <br>
+        
         <%
   PaymentDao paydao = new PaymentDao();
   int idCli = paydao.getIdClient(client.getUsername());
   GameDao gamedao = new GameDao();
   List<Integer> myids = gamedao.getmyids(idCli);
-    int a = 0;
-    if(a==0){
+    if(myids==null){
 %>
-      <h1>Καμία κράτηση...</h1>
+<br>
+<div class="container">
+      <h1 class="alert alert-danger text-center"style="text-align: center;">Καμία κράτηση...</h1><br><br><br><br><br>
+      <h2 style="text-align: center;">Για κράτηση πατήστε εδώ</h2> <br>
+      <p style="text-align: center;">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Κάνε κράτηση τώρα</button>
+      </p>
+
+      
+</div>
+
+<!-- Modal -->
+<div class="modal" id="myModal" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="fields.jsp" method="GET">
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="sport">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
+        </select>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal" id="myModal2" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <form class="modal-content animate" action="fields_rate.jsp" method="GET">
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε άθλημα</b></label>
+        <select class="form-control" id="sport" name="sport">
+          <option value="" selected disabled hidden>--- Άθλημα ---</option>
+          <option value="1">Ποδόσφαιρο</option>
+          <option value="2">Μπάσκετ</option>
+          <option value="3">Βόλλευ</option>
+          <option value="4">Τένις</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><b>Επιλέξτε περιοχή</b></label>
+        <select class="form-control" id="sport" name="region">
+          <option value="" selected disabled hidden>--- Περιοχή ---</option>
+          <option value="1">Χαλάνδρι</option>
+          <option value="2">Κυψέλη</option>
+          <option value="3">Πατήσια</option>
+          <option value="4">Γαλάτσι</option>
+          <option value="5">Μαρούσι</option>
+        </select>
+      </div>
+      <div class="col-xs-offset-4 col-xs-8">
+        <p style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+  </main>
+
+<!-- FOOTER -->
+<!-- footer -->
+<footer class="navbar-inverse navbar-expand-md fixed-bottom navbar-dark  bg-dark">
+  <div class="container">
+        <p>&copy; Copyright 2020 by ismgroup18</p>
+  </div>
+</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
+
+</html>
 <%
     } else{
       %>
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>Κρατήσεις</h1>
+        </div>
+      </section>
+      <br>
 
     <div class="container">
         <table class="table  table-hover table-bordered">
@@ -155,7 +251,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   </tr>
    <%
   } 
-}
+
   %>
 
 
@@ -250,3 +346,4 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
 
 </html>
+<%}%>

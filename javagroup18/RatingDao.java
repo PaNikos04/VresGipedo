@@ -107,6 +107,10 @@ public class RatingDao {
 			stmt = con.prepareStatement(sqlQuery);
 			stmt.setInt(1, idClient);
             rs = stmt.executeQuery();
+            if(!rs.next()){
+                return null;   
+            }
+            rs.previous();
             while(rs.next()) {
                 ratings.add(new Rating(rs.getInt("id_Client"), rs.getInt("id__Field"), rs.getInt("stars"), rs.getString("comments")));
             }
