@@ -48,6 +48,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
             background-color: rgb(204, 202, 206);
         }
       }
+      .badge {
+        border-radius: 0;
+        font-size: 12px;
+        line-height: 1.7;
+        font-weight: large
+    }
       
     </style>
     <!-- Custom styles for this template -->
@@ -88,7 +94,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                 <p><hr style="border-top: 2px solid #bbb;
                   border-radius: 5px;"></p>
                 <div class="btn-group container" >
-                  <a href="#" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
+                  <a href="myratings.jsp" class="btn btn-dark" style="width: 200px;"> Οι αξιολογήσεις μου</a>
                 </div>
                 <p><hr style="border-top: 2px solid #bbb;
                   border-radius: 5px;"></p>
@@ -111,17 +117,53 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       </header>
 
     <main role="main">
-        <br><br>
+      <section class="jumbotron text-center">
         <div class="container">
-            <ul>
-                <li><h1>Όνομα: <%=client.getName()%></h1></li>
-                <li><h1>Επώνυμο: <%=client.getSurname()%></h1></li>
-                <li><h1>Όνομα Χρήστη: <%=client.getUsername()%></h1></li>
-                <li><h1>Email: <%=client.getEmail()%></h1></li>
-                <li><h1>Τηλέφωνο: <%=client.getPhone()%></h1></li>
-                <li><h1>Περιοχή: <%=client.getRegion()%></h1></li>
-            </ul>
+          <h1>Προφίλ Χρήστη</h1>
         </div>
+      </section>
+      <br>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <span class="badge badge-dark rounded-circle" style="font-size: 700%; color:rgb(204, 202, 206);"><%=client.getName().substring(0,1)%><%=client.getSurname().substring(0,1)%></span>
+            </div>
+            <div class="col">
+              
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <form  action="profile_controller.jsp" method="post">
+              <div class="container">
+                <div class="form-group">
+                  <label>Όνομα</label> <input class="form-control" id="name" placeholder="<%=client.getName()%>" readonly>
+                  <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="<%=client.getSurname()%>" readonly>
+                  <label>Όνομα Χρήστη</label> <input class="form-control" id="username" name="username" placeholder="<%=client.getUsername()%>" readonly> 
+                  <label>Email</label> <input class="form-control" id="email" name="email" placeholder="<%=client.getEmail()%>" value="<%=client.getEmail()%>">
+                  <label>Τηλέφωνο</label> <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="<%=client.getPhone()%>" value="<%=client.getPhone()%>" >
+                  <label>Περιοχή</label> <input class="form-control" id="region" name="region" placeholder="<%=client.getRegion()%>" value="<%=client.getRegion()%>">
+                  <label>Κωδικός</label> <input class="form-control" type="password" id="password" name="password" value="<%=client.getPassword()%>" placeholder="">
+                  <label>Επιβεβαίωση Κωδικού</label> <input class="form-control" type="password" id="conf_password" name="conf_password" value="<%=client.getPassword()%>" placeholder="">
+
+                  <br>
+                <p style="text-align: center;">
+                  <button type="submit" class="btn btn-primary">Αποθήκευση Στοιχείων</button>
+                </p>
+                </div>
+                <div class="col-xs-offset-4 col-xs-8">
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+        <br><br><br><br>
 
 
 
@@ -202,7 +244,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 
   <!-- FOOTER -->
   <!-- footer -->
-  <footer class="navbar-inverse navbar-expand-md navbar-dark fixed-bottom bg-dark">
+  <footer class="navbar-inverse navbar-expand-md navbar-dark  bg-dark">
     <div class="container">
           <p>&copy; Copyright 2020 by ismgroup18</p>
     </div>

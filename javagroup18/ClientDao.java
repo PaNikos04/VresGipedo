@@ -94,6 +94,52 @@ public class ClientDao {
 
 			
 		
-	}
+    }
+    
+    public void changeProfile(String username, String email, String phone, String region, String password) throws Exception {
+            
+        DB db = new DB();
+        Connection con = null;
+        PreparedStatement stmt = null;
+        String checkSql = "SELECT * FROM ismgroup18.client WHERE username <> ? AND email = ?;";
+        String sql = "UPDATE ismgroup18.client SET password = ? , email = ? , phone = ? , region = ?  WHERE username = ?;";
+        try {
+            
+            con = db.getConnection();
+            stmt = con.prepareStatement(checkSql);
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                rs.close();
+                stmt.close();
+                throw new Exception("email already registered");
+            }
+            rs.close();
+            
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, password);
+            stmt.setString(2, email);
+            stmt.setString(3, phone);
+            stmt.setString(4, region);
+            stmt.setString(5, username);
+            stmt.executeUpdate();
+            
+            stmt.close();
+            }
+        catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+        finally {
+            try {
+                db.close();
+            } catch (Exception e) {
+                
+            }
+        }
+        
+        
+    }
     
 }
