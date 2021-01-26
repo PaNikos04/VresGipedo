@@ -71,7 +71,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
         <% } %>
       </div>
-      <div class="container" style="position:absolute; left: 30%; top:150px;">
+      <div class="container" style="position:absolute; left: 33%; top:150px;">
        
         <div class="row centered-form">
         
