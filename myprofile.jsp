@@ -145,7 +145,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                   <label>Όνομα</label> <input class="form-control" id="name" placeholder="<%=client.getName()%>" readonly>
                   <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="<%=client.getSurname()%>" readonly>
                   <label>Όνομα Χρήστη</label> <input class="form-control" id="username" name="username" placeholder="<%=client.getUsername()%>" readonly> 
-                  <label>Email</label> <input class="form-control" id="email" name="email" placeholder="<%=client.getEmail()%>" value="<%=client.getEmail()%>">
+                  <label>Email <i class="fa fa-pencil"></i></label> <input class="form-control" id="email" name="email" placeholder="<%=client.getEmail()%>" value="<%=client.getEmail()%>">
                   <label>Τηλέφωνο</label> <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="<%=client.getPhone()%>" value="<%=client.getPhone()%>" >
                   <label>Περιοχή</label> <input class="form-control" id="region" name="region" placeholder="<%=client.getRegion()%>" value="<%=client.getRegion()%>">
                   <label>Κωδικός</label> <input class="form-control" type="password" id="password" name="password" value="<%=client.getPassword()%>" placeholder="">
