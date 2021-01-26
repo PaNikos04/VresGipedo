@@ -145,11 +145,11 @@ charset=UTF-8" pageEncoding="UTF-8"%>
                   <label>Όνομα</label> <input class="form-control" id="name" placeholder="<%=client.getName()%>" readonly>
                   <label>Επώνυμο</label> <input class="form-control" id="surname" placeholder="<%=client.getSurname()%>" readonly>
                   <label>Όνομα Χρήστη</label> <input class="form-control" id="username" name="username" placeholder="<%=client.getUsername()%>" readonly> 
-                  <label>Email <i class="fa fa-pencil"></i></label> <input class="form-control" id="email" name="email" placeholder="<%=client.getEmail()%>" value="<%=client.getEmail()%>">
-                  <label>Τηλέφωνο</label> <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="<%=client.getPhone()%>" value="<%=client.getPhone()%>" >
-                  <label>Περιοχή</label> <input class="form-control" id="region" name="region" placeholder="<%=client.getRegion()%>" value="<%=client.getRegion()%>">
-                  <label>Κωδικός</label> <input class="form-control" type="password" id="password" name="password" value="<%=client.getPassword()%>" placeholder="">
-                  <label>Επιβεβαίωση Κωδικού</label> <input class="form-control" type="password" id="conf_password" name="conf_password" value="<%=client.getPassword()%>" placeholder="">
+                  <label>Email <i class="fas fa-pencil-alt"></i></label> <input class="form-control" id="email" name="email" placeholder="<%=client.getEmail()%>" value="<%=client.getEmail()%>">
+                  <label>Τηλέφωνο <i class="fas fa-pencil-alt"></i></label> <input class="form-control" id="phone" name="phone" maxlength="10" placeholder="<%=client.getPhone()%>" value="<%=client.getPhone()%>" >
+                  <label>Περιοχή <i class="fas fa-pencil-alt"></i></label> <input class="form-control" id="region" name="region" placeholder="<%=client.getRegion()%>" value="<%=client.getRegion()%>">
+                  <label>Κωδικός <i class="fas fa-pencil-alt"></i></label> <input class="form-control" type="password" id="password" name="password" value="<%=client.getPassword()%>" placeholder="">
+                  <label>Επιβεβαίωση Κωδικού <i class="fas fa-pencil-alt"></i></label> <input class="form-control" type="password" id="conf_password" name="conf_password" value="<%=client.getPassword()%>" placeholder="">
 
                   <br>
                 <p style="text-align: center;">
