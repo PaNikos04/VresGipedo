@@ -70,7 +70,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
+                <a class="nav-link" href="VresGipedo">Αρχική Σελίδα</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Βρες το γήπεδο σου</a>
@@ -153,7 +153,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 
                   <br>
                 <p style="text-align: center;">
-                  <button type="submit" class="btn btn-primary">Αποθήκευση Στοιχείων</button>
+                  <button type="submit" class="btn btn-primary">Ενημέρωση Στοιχείων</button>
                 </p>
                 </div>
                 <div class="col-xs-offset-4 col-xs-8">

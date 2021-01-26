@@ -7,7 +7,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   String s = request.getParameter("sport");
   String r = request.getParameter("region");
   if(s == null || r == null){
-    response.sendRedirect("mainpage.jsp");
+    response.sendRedirect("VresGipedo");
     return;
 }
   int sport = Integer.parseInt(s);
@@ -64,7 +64,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
+              <a class="nav-link" href="VresGipedo">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>

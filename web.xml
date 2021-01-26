@@ -38,18 +38,18 @@
 	<!-- error-code related error pages -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/error404.jsp</location>
+		<location>/error_page.jsp</location>
 	</error-page>
   
 	<!-- exception-type related error pages -->
 	<error-page>
 		<exception-type>javax.servlet.ServletException</exception-type>
-		<location>/error.jsp</location>
+		<location>/error_page.jsp</location>
 	</error-page>
   
 	<!-- Define welcome file list -->
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>VresGipedo</welcome-file>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>

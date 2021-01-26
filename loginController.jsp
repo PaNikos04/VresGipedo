@@ -11,7 +11,7 @@ String status = request.getParameter("status");
 
 
 if(username == null || password == null){
-    response.sendRedirect("mainpage.jsp");
+    response.sendRedirect("VresGipedo");
     return;
 }
 

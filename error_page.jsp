@@ -46,9 +46,12 @@ charset=UTF-8" pageEncoding="UTF-8"%>
 
 		<div class="container" role="main">
 
-      <div class="alert alert-danger text-center" role="alert">Η σελίδα δεν βρέθηκε</div>		
+      <div class="alert alert-danger text-center" role="alert">Η σελίδα δεν βρέθηκε</div>	
+      <br>	<br>	<br>	<br>	<br> <br>
       <!-- FIX GIF IN CENTER -->
-        <img class="preloader" src="images/loading-img.gif" alt="loading-gif">
+
+      <h1 style="text-align: center;">Μήπως εννοείτε VresGipedo;</h1> <br> 
+        <p style="text-align: center;"><a href="VresGipedo" class="btn btn-primary">VresGipedo - Αρχική Σελίδα</a></p>
 		</div>
 		<!-- /container -->
 
