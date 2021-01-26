@@ -43,7 +43,7 @@ if(flag == 6){
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <!-- automatically will redirect to index_ex1_b_8XXXXXX.jsp after 2 seconds -->
-	<meta http-equiv="refresh" content="3;url=<%=request.getContextPath() %>/mainpage.jsp" />
+	<meta http-equiv="refresh" content="3;url=<%=request.getContextPath() %>/VresGipedo" />
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 

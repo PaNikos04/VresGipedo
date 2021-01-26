@@ -119,7 +119,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
+              <a class="nav-link" href="VresGipedo">Αρχική Σελίδα</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('myModal2').style.display='block'" style="width:auto;">Αξιολόγησε γήπεδο</a>

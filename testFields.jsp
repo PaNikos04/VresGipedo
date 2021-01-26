@@ -7,7 +7,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
   String s = request.getParameter("sport");
   String r = request.getParameter("region");
   if(s == null || r == null){
-    response.sendRedirect("mainpage.jsp");
+    response.sendRedirect("VresGipedo");
     return;
 }
   int sport = Integer.parseInt(s);

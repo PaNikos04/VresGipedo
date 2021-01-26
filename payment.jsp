@@ -77,7 +77,7 @@ String myid = request.getParameter("am");
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
+              <a class="nav-link" href="VresGipedo">Αρχική Σελίδα</a>
             </li>
           </ul>
           <div class="btn-group">
