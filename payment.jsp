@@ -77,7 +77,7 @@ String myid = request.getParameter("am");
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="mainpage.jsp">Αρχική Σελίδα</a>
+              <a class="nav-link" href="VresGipedo">Αρχική Σελίδα</a>
             </li>
           </ul>
           <div class="btn-group">
@@ -242,7 +242,7 @@ String myid = request.getParameter("am");
                                 <div class="row">
                                   <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div> 
-                                      <button type="submit" name="form" value="1"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                                      <button type="submit" name="form" value="1"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή </button>
                                     </div>
                                   </div>
                                   <div class="col-xs-6 col-sm-6 col-md-6">
@@ -307,7 +307,7 @@ String myid = request.getParameter("am");
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div> 
-                              <button type="submit" name="form" value="3"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή 70,00€ </button>
+                              <button type="submit" name="form" value="3"  class="subscribe btn btn-primary btn-block shadow-sm"> Πληρωμή </button>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">

@@ -25,7 +25,7 @@ if (password.equals(confirm)) {
     <%
   }
 %>
-  <jsp:forward page="mainpage.jsp"/> 
+  <jsp:forward page="VresGipedo"/> 
 <%  
 } else {
   request.setAttribute("message","Λάθος επιβεβαίωση κωδικού!");
