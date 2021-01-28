@@ -21,7 +21,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Vres Gipedo - Κρατήσεις Χρήστη</title>
+    <title>Vres Gipedo - Αξιολογήσεις Χρήστη</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 
@@ -224,7 +224,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
       %>
       <section class="jumbotron text-center">
         <div class="container">
-          <h1>Κρατήσεις</h1>
+          <h1>Αξιολογήσεις</h1>
         </div>
       </section>
       <br>
