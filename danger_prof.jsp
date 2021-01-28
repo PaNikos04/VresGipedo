@@ -1,53 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javagroup18.*, java.util.List"%>
-
-<%
-Client client = (Client)session.getAttribute("clientObj2020");
-//get parameter from request
-request.setCharacterEncoding("UTF-8");
-String email = request.getParameter("email");
-String password = request.getParameter("password");
-String confirm = request.getParameter("conf_password");
-String region = request.getParameter("region");
-String phone = request.getParameter("phone");
-
-String username = client.getUsername();
-
-
-if(email.length()==0){
-    email = client.getEmail();
-}
-if(phone.length()==0){
-    phone = client.getPhone();
-}
-if(region.length()==0){
-    region = client.getRegion();
-}
-if(password.length()==0){
-    password = client.getPassword();
-}
-if(!password.equals(confirm)){
-    request.setAttribute("message","Λάθος επιβεβαίωση κωδικού!");
-%>
-<jsp:forward page="danger_prof.jsp"/>
-<%
-}
-
-try{
-ClientDao cldao = new ClientDao();
-cldao.changeProfile(username,email,phone,region,password);
-
-client.setEmail(email);
-client.setPhone(phone);
-client.setRegion(region);
-client.setPassword(password);
-} catch(Exception e){
-  request.setAttribute("message", "Το email είναι ήδη καταχωρημένο!");
-  %>
-          <jsp:forward page="danger_prof.jsp"/>  
-  <%
-      }
-  %>
+<%@ page language="java" contentType="text/html;
+charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
@@ -60,6 +12,7 @@ client.setPassword(password);
     <meta name="generator" content="Jekyll v4.1.1">
     <!-- automatically will redirect to index_ex1_b_8XXXXXX.jsp after 2 seconds -->
 	<meta http-equiv="refresh" content="3;url=<%=request.getContextPath() %>/myprofile.jsp" />
+    <title>Vres Gipedo</title>
     <link rel="icon" href="images/favicon1.jpg" type="image/png" sizes="16x16">
 
 
@@ -87,15 +40,15 @@ client.setPassword(password);
     </style>
     <!-- Custom styles for this template -->
     <link href="css/mainpage.css" rel="stylesheet">
-	<title>Completed change profile</title>
 
 	</head>
 	<body>	
 
 		<div class="container" role="main">
-
-      <div class="alert alert-success text-center" role="alert">Επιτυχής ενημέρωση του προφίλ!</div>	
-      <!-- FIX GIF IN CENTER -->
+      <% if(request.getAttribute("message") != null) { %>		
+			<div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+		  <% } %>
+      <!-- FIX GIF IN CENTER -->	
 		</div>
 		<!-- /container -->
 
